@@ -84,10 +84,6 @@ DATABASES = {
         "PASSWORD": os.getenv("PGPASSWORD"),
         "HOST": os.getenv("PGHOST"),
         "PORT": os.getenv("PGPORT", "5432"),
-        "CONN_MAX_AGE": 60,          # persistent connections
-        "OPTIONS": {
-            "connect_timeout": 5,
-        },
     }
 }
 
