@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'theme'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.up.railway.app",
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
