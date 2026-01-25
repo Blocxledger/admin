@@ -35,29 +35,7 @@ class SellersInline(admin.TabularInline):
 class SetIdAdmin(admin.ModelAdmin):
     list_display = (
         "set_id",
-        "year",
-        "parts",
-        "images_count",
-        "sellers_count",
     )
-    search_fields = ("set_id",)
-    inlines = (ImagesInline, SellersInline)
-
-    def year(self, obj):
-        return getattr(obj.setinfo, "year", None)
-
-    def parts(self, obj):
-        return getattr(obj.setinfo, "parts", None)
-
-    def images_count(self, obj):
-        return obj.images_set.count()
-
-    def sellers_count(self, obj):
-        return obj.sellers_set.count()
-
-    images_count.short_description = "Images"
-    sellers_count.short_description = "Sellers"
-
 
 @admin.register(SetInfo)
 class SetInfoAdmin(admin.ModelAdmin):
