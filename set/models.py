@@ -41,7 +41,7 @@ class Sellers(models.Model):
     country = models.CharField(max_length=200, null=True, blank=True)
     complete = models.CharField(max_length=200, null=True, blank=True)
     usd_price = models.IntegerField(null=True, blank=True)
-    real_price = models.IntegerField(null=True, blank=True)
+    real_price = models.CharField(max_length=True,null=True, blank=True)
     quantity = models.IntegerField(null=True, blank=True)
     buy_url = models.URLField(null=True, blank=True, max_length=900000)
     source = models.CharField(choices=SOURCES, max_length=200, db_index=True)
