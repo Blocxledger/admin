@@ -33,9 +33,8 @@ class SellersInline(admin.TabularInline):
 
 @admin.register(SetId)
 class SetIdAdmin(admin.ModelAdmin):
-    list_display = (
-        "set_id",
-    )
+    list_display = ("set_id",)
+    search_fields = ("set_id",)
 
 @admin.register(SetInfo)
 class SetInfoAdmin(admin.ModelAdmin):
@@ -46,7 +45,19 @@ class SetInfoAdmin(admin.ModelAdmin):
         "parts",
         "weight",
         "dim",
+        "source",
     )
+
+    def source(self, obj):
+        if obj.bricklink_name:
+            return "BrickLink"
+        if obj.brickeconomy_name:
+            return "BrickEconomy"
+        if obj.lego_name:
+            return "LEGO"
+        if obj.bricksandminifigsanaheim_name:
+            return 'Bricksandminifigsanaheim'
+        return "-"
 
     search_fields = (
         "bricklink_name",
@@ -55,7 +66,7 @@ class SetInfoAdmin(admin.ModelAdmin):
         "set__set_id",
     )
 
-    list_filter = ("year","source")
+    list_filter = ("year")
 
     fieldsets = (
         ("Names", {
