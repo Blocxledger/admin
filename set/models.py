@@ -43,7 +43,7 @@ class Sellers(models.Model):
     usd_price = models.IntegerField(null=True, blank=True)
     real_price = models.IntegerField(null=True, blank=True)
     quantity = models.IntegerField(null=True, blank=True)
-    buy_url = models.URLField(null=True, blank=True)
+    buy_url = models.URLField(null=True, blank=True, max_length=900000)
     source = models.CharField(choices=SOURCES, max_length=200, db_index=True)
 
     def __str__(self):
@@ -51,7 +51,7 @@ class Sellers(models.Model):
     
 class Images(models.Model):
     set = models.ForeignKey(SetId, on_delete=models.CASCADE)
-    link = models.URLField()
+    link = models.URLField(max_length=900000)
 
     def __str__(self):
         return str(self.link)
