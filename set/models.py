@@ -30,8 +30,8 @@ class SetInfo(models.Model):
 
 class Sellers(models.Model):
     SOURCES = [
-        ('BrickLink','BrickLink'),
-        ('BrickEconomy','BrickEconomy'),
+        ('brickLink','brickLink'),
+        ('brickEconomy','brickEconomy'),
     ]
     
     set = models.ForeignKey(SetId, on_delete=models.CASCADE)
