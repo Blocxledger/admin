@@ -47,7 +47,7 @@ def ingest_set(request):
                     source=data["source"]
                 )
         else:
-            Theme.objects.get_or_create(
+            parent, _ = Theme.objects.get_or_create(
                     name=category,
                     source=data["source"]
                 )
