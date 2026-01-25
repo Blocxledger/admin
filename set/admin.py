@@ -46,6 +46,7 @@ class SetInfoAdmin(admin.ModelAdmin):
         "parts",
         "weight",
         "dim",
+        "source",
     )
 
     search_fields = (
@@ -55,7 +56,7 @@ class SetInfoAdmin(admin.ModelAdmin):
         "set__set_id",
     )
 
-    list_filter = ("year",)
+    list_filter = ("year","source")
 
     fieldsets = (
         ("Names", {
