@@ -66,7 +66,7 @@ class SetInfoAdmin(admin.ModelAdmin):
         "set__set_id",
     )
 
-    list_filter = ("year")
+    list_filter = ("year",)
 
     fieldsets = (
         ("Names", {
