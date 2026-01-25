@@ -2,10 +2,10 @@ from django.db import models
 
 class Theme(models.Model):
     SOURCES = [
-        ('BrickLink','BrickLink'),
-        ('BrickEconomy','BrickEconomy'),
-        ('Lego','Lego'),
-        ('Bricksandminifigsanaheim','Bricksandminifigsanaheim'),
+        ('brickLink','brickLink'),
+        ('brickEconomy','brickEconomy'),
+        ('lego','lego'),
+        ('bricksandminifigsanaheim','bricksandminifigsanaheim'),
     ]
     
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
