@@ -58,8 +58,8 @@ def ingest_set(request):
         set_info, _ = SetInfo.objects.update_or_create(
             set=set_obj,
             defaults={
-                "bricklink_name": data["name"] if data["source"] == "BrickLink" else None,
-                "brickeconomy_name": data["name"] if data["source"] == "BrickEconomy" else None,
+                "bricklink_name": data["name"] if data["source"] == "brickLink" else None,
+                "brickeconomy_name": data["name"] if data["source"] == "brickEconomy" else None,
                 "lego_name": data["name"] if data["source"] == "LEGO" else None,
                 "year": data.get("year"),
                 "weight": data.get("weight"),
