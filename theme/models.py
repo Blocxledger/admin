@@ -4,6 +4,8 @@ class Theme(models.Model):
     SOURCES = [
         ('BrickLink','BrickLink'),
         ('BrickEconomy','BrickEconomy'),
+        ('Lego','Lego'),
+        ('Bricksandminifigsanaheim','Bricksandminifigsanaheim'),
     ]
     
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
