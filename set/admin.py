@@ -107,8 +107,18 @@ class ImagesAdmin(admin.ModelAdmin):
 
     image_preview.short_description = "Preview"
 
-
-class SellersInline(admin.TabularInline):
-    model = Sellers
-    extra = 0
+@admin.register(Sellers)
+class SellersAdmin(admin.ModelAdmin):
+    list_display = (
+        "set",
+        "source",
+        "usd_price",
+        "condition",
+        "country",
+        "quantity",
+    )
+    list_filter = ("source", "country", "condition")
+    search_fields = ("set__set_id", "name")
     autocomplete_fields = ("set",)
+    list_select_related = ("set",)
+    list_per_page = 20
