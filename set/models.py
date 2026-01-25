@@ -36,7 +36,7 @@ class Sellers(models.Model):
     
     set = models.ForeignKey(SetId, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True, blank=True)
-    description = models.CharField(max_length=200, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     condition = models.CharField(max_length=200, null=True, blank=True)
     country = models.CharField(max_length=200, null=True, blank=True)
     complete = models.CharField(max_length=200, null=True, blank=True)
