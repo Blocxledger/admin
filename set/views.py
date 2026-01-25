@@ -38,8 +38,9 @@ def ingest_set(request):
         # category = ["City", "Town"]
         # -------------------
         parent = None
-        if isinstance(data.get("category", []), list):
-            for name in data.get("category", []):
+        category = data.get("category", [])
+        if isinstance(category, list):
+            for name in category:
                 parent, _ = Theme.objects.get_or_create(
                     name=name,
                     parent=parent,
@@ -47,7 +48,7 @@ def ingest_set(request):
                 )
         else:
             Theme.objects.get_or_create(
-                    name=name,
+                    name=category,
                     source=data["source"]
                 )
 
