@@ -6,8 +6,8 @@ class Theme(models.Model):
         ('BrickEconomy','BrickEconomy'),
     ]
     
-    parent = models.ForeignKey('self', on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, null=True, blank=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+    name = models.CharField(max_length=200)
     source = models.CharField(choices=SOURCES, max_length=200)
 
     def __str__(self):
