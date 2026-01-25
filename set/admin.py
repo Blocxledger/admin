@@ -46,7 +46,6 @@ class SetInfoAdmin(admin.ModelAdmin):
         "parts",
         "weight",
         "dim",
-        "source",
     )
 
     search_fields = (
