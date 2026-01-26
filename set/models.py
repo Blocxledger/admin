@@ -23,6 +23,10 @@ class SetInfo(models.Model):
     dim = models.CharField(max_length=200, null=True, blank=True)
     parts = models.CharField(max_length=200, null=True, blank=True)
     themes = models.ManyToManyField(Theme)
+    bricklink_url = models.URLField(null=True, blank=True, max_length=900000)
+    lego_url = models.URLField(null=True, blank=True, max_length=900000)
+    bricksandminifigsanaheim_url = models.URLField(null=True, blank=True, max_length=900000)
+    brickeconomy_url = models.URLField(null=True, blank=True, max_length=900000)
 
     def __str__(self):
         return str(self.bricklink_name or self.lego_name or  self.brickeconomy_name  or self.bricksandminifigsanaheim_name)
