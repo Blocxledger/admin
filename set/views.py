@@ -58,21 +58,21 @@ def ingest_set(request):
         set_info, _ = SetInfo.objects.update_or_create(
             set=set_obj,
             defaults={
-                "bricklink_name": data["name"] if data["source"] == "brickLink" else None,
-                "brickeconomy_name": data["name"] if data["source"] == "brickEconomy" else None,
                 "lego_name": data["name"] if data["source"] == "LEGO" else None,
                 "year": data.get("year"),
                 "weight": data.get("weight"),
                 "dim": data.get("dim"),
                 "parts": data.get("parts"),
-                "lego_description": data.get("description") if data["source"] == "LEGO" else None,
-                "brickeconomy_description": data.get("description") if data["source"] == "brickEconomy" else None,
-                'bricksandminifigsanaheim_desctiption': data.get("description") if data["source"] == "bricksandminifigsanaheim" else None,
-                'bricksandminifigsanaheim_name': data.get("name") if data["source"] == "bricksandminifigsanaheim" else None,
-                'bricksandminifigsanaheim_url': data.get("url") if data["source"] == "bricksandminifigsanaheim" else None,
+                "bricklink_name": data["name"] if data["source"].lower() == "brickLink" else None,
+                'bricklink_url': data.get("url") if data["source"].lower() == "bricklink" else None,
+                'brickeconomy_url': data.get("url") if data["source"].lower() == "brickeconomy" else None,
+                "brickeconomy_name": data["name"] if data["source"].lower() == "brickEconomy" else None,
+                "brickeconomy_description": data.get("description") if data["source"].lower() == "brickEconomy" else None,
+                'bricksandminifigsanaheim_desctiption': data.get("description") if data["source"].lower() == "bricksandminifigsanaheim" else None,
+                'bricksandminifigsanaheim_name': data.get("name") if data["source"].lower() == "bricksandminifigsanaheim" else None,
+                'bricksandminifigsanaheim_url': data.get("url") if data["source"].lower() == "bricksandminifigsanaheim" else None,
                 'lego_url': data.get("url") if data["source"] == "LEGO" else None,
-                'brickeconomy_url': data.get("url") if data["source"] == "brickeconomy" else None,
-                'bricklink_url': data.get("url") if data["source"] == "bricklink" else None,
+                "lego_description": data.get("description") if data["source"] == "LEGO" else None,
             }
         )
         if not set_info.themes.filter(id=parent.id).exists():
