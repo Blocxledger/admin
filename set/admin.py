@@ -94,6 +94,15 @@ class SetInfoAdmin(admin.ModelAdmin):
                 "bricksandminifigsanaheim_desctiption"
             )
         }),
+        ("Links", {
+            "classes": ("collapse",),
+            "fields": (
+                "lego_url",
+                "brickeconomy_url",
+                "bricksandminifigsanaheim_url",
+                "bricklink_url"
+            )
+        }),
     )
 
     def display_name(self, obj):
