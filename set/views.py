@@ -66,9 +66,13 @@ def ingest_set(request):
                 "dim": data.get("dim"),
                 "parts": data.get("parts"),
                 "lego_description": data.get("description") if data["source"] == "LEGO" else None,
-                "brickeconomy_description": data.get("description") if data["source"] == "BrickEconomy" else None,
+                "brickeconomy_description": data.get("description") if data["source"] == "brickEconomy" else None,
                 'bricksandminifigsanaheim_desctiption': data.get("description") if data["source"] == "bricksandminifigsanaheim" else None,
                 'bricksandminifigsanaheim_name': data.get("name") if data["source"] == "bricksandminifigsanaheim" else None,
+                'bricksandminifigsanaheim_url': data.get("url") if data["source"] == "bricksandminifigsanaheim" else None,
+                'lego_url': data.get("url") if data["source"] == "LEGO" else None,
+                'brickeconomy_url': data.get("url") if data["source"] == "brickeconomy" else None,
+                'bricklink_url': data.get("url") if data["source"] == "bricklink" else None,
             }
         )
         if not set_info.themes.filter(id=parent.id).exists():
