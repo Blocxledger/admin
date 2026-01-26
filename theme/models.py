@@ -4,7 +4,7 @@ class Theme(models.Model):
     SOURCES = [
         ('bricklink','bricklink'),
         ('brickeconomy','brickeconomy'),
-        ('lego','lego'),
+        ('LEGO','LEGO'),
         ('bricksandminifigsanaheim','bricksandminifigsanaheim'),
     ]
     
