@@ -63,7 +63,7 @@ def ingest_set(request):
                 "weight": data.get("weight"),
                 "dim": data.get("dim"),
                 "parts": data.get("parts"),
-                "bricklink_name": data["name"] if data["source"].lower() == "brickLink" else None,
+                "bricklink_name": data["name"] if data["source"].lower() == "bricklink" else None,
                 'bricklink_url': data.get("url") if data["source"].lower() == "bricklink" else None,
                 'brickeconomy_url': data.get("url") if data["source"].lower() == "brickeconomy" else None,
                 "brickeconomy_name": data["name"] if data["source"].lower() == "brickeconomy" else None,
