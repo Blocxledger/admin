@@ -2,8 +2,8 @@ from django.db import models
 
 class Theme(models.Model):
     SOURCES = [
-        ('brickLink','brickLink'),
-        ('brickEconomy','brickEconomy'),
+        ('bricklink','bricklink'),
+        ('brickeconomy','brickeconomy'),
         ('lego','lego'),
         ('bricksandminifigsanaheim','bricksandminifigsanaheim'),
     ]
