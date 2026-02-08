@@ -43,8 +43,8 @@ class SetInfoAdmin(admin.ModelAdmin):
         "set",
         "year",
         "parts",
-        "weight",
-        "dim",
+        "lego_price",
+        "view_count",
         "source",
     )
 
@@ -84,6 +84,8 @@ class SetInfoAdmin(admin.ModelAdmin):
                 "parts",
                 "weight",
                 "dim",
+                "lego_price",
+                "view_count",
             )
         }),
         ("Descriptions", {

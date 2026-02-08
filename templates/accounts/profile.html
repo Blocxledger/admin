@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Profile - BrickVault{% endblock %}
+{% block content %}
+<div class="max-w-2xl">
+    <h1 class="text-3xl font-bold text-white mb-6">Profile</h1>
+    <div class="bg-slate-800/50 rounded-xl border border-slate-700 p-6 space-y-4">
+        <div><span class="text-slate-500 text-sm">Username</span><p class="text-white">{{ user.username }}</p></div>
+        <div><span class="text-slate-500 text-sm">Email</span><p class="text-white">{{ user.email|default:"Not set" }}</p></div>
+        {% if user.profile.bio %}<div><span class="text-slate-500 text-sm">Bio</span><p class="text-slate-300">{{ user.profile.bio }}</p></div>{% endif %}
+        <div><span class="text-slate-500 text-sm">Notification Frequency</span><p class="text-slate-300">{{ user.profile.get_notification_frequency_display }}</p></div>
+        <a href="{% url 'accounts:profile_edit' %}" class="inline-block bg-brick-500 hover:bg-brick-600 text-white px-4 py-2 rounded-lg font-medium mt-4">Edit Profile</a>
+        <a href="{% url 'accounts:notification_settings' %}" class="inline-block ml-2 px-4 py-2 border border-slate-600 text-slate-400 hover:text-white rounded-lg">Notification Settings</a>
+    </div>
+</div>
+{% endblock %}

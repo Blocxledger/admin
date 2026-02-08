@@ -1,0 +1,13 @@
+{% if items %}
+<ul class="absolute top-full left-0 right-0 mt-1 bg-slate-800 border border-slate-700 rounded-lg shadow-xl overflow-hidden z-50">
+    {% for item in items %}
+    <li>
+        <a href="{% url 'catalog:item_detail' item.code %}" class="block px-4 py-3 hover:bg-slate-700 flex justify-between">
+            <span class="font-mono text-brick-400">{{ item.code }}</span>
+            <span class="text-slate-400 truncate ml-2">{{ item.name|truncatewords:5|default:"-" }}</span>
+            {% if item.price %}<span class="text-brick-400 ml-2">${{ item.price }}</span>{% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

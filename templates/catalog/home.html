@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}BrickVault - LEGO Set Catalog{% endblock %}
+
+{% block content %}
+<div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-white mb-2">Discover LEGO Sets</h1>
+    <p class="text-slate-400">Track prices, save favorites, and never miss an update</p>
+</div>
+
+<div class="flex justify-center mb-16">
+    <form action="{% url 'catalog:search' %}" method="get" class="w-full max-w-xl">
+        <input type="text" name="code" placeholder="Search by set code (e.g. 10327)"
+               class="w-full bg-slate-800 border border-slate-700 rounded-xl px-6 py-4 text-lg focus:outline-none focus:ring-2 focus:ring-brick-500 focus:border-transparent">
+    </form>
+</div>
+
+{% if trending_items %}
+<section class="mb-16">
+    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+        <svg class="w-8 h-8 text-brick-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        Trending
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        {% for item in trending_items %}
+        {% include 'components/item_card.html' with item=item %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if recent_items %}
+<section class="mb-16">
+    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+        <svg class="w-8 h-8 text-brick-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Recently Added
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        {% for item in recent_items %}
+        {% include 'components/item_card.html' with item=item %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if categories %}
+<section>
+    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+        <svg class="w-8 h-8 text-brick-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        Browse by Theme
+    </h2>
+    <div class="flex flex-wrap gap-3">
+        {% for cat in categories %}
+        <a href="{% url 'catalog:browse' %}?category={{ cat.id }}" class="px-4 py-2 bg-slate-800 hover:bg-brick-500/20 border border-slate-700 hover:border-brick-500/50 rounded-lg text-slate-300 hover:text-brick-400 transition">
+            {{ cat.name }}
+        </a>
+        {% endfor %}
+        <a href="{% url 'catalog:browse' %}" class="px-4 py-2 text-brick-400 hover:text-brick-300 font-medium">View all →</a>
+    </div>
+</section>
+{% endif %}
+
+{% if not trending_items and not recent_items and not categories %}
+<div class="text-center py-24">
+    <p class="text-slate-500 text-lg mb-4">No items in the catalog yet.</p>
+    <p class="text-slate-600">Add items via the <a href="{% url 'admin:index' %}" class="text-brick-400 hover:underline">admin panel</a> or the ingest API.</p>
+</div>
+{% endif %}
+{% endblock %}

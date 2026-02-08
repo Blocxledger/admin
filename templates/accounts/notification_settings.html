@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Notification Settings - BrickVault{% endblock %}
+{% block content %}
+<div class="max-w-md mx-auto">
+    <h1 class="text-3xl font-bold text-white mb-6">Notification Settings</h1>
+    <p class="text-slate-400 mb-6">Choose how often you receive in-app notifications about price changes for items in your watchlist.</p>
+    <form method="post" class="space-y-4 bg-slate-800/50 rounded-xl border border-slate-700 p-6">
+        {% csrf_token %}
+        <div>
+            <label class="block text-sm font-medium text-slate-400 mb-3">Frequency</label>
+            <div class="space-y-2">
+                {% for choice in form.notification_frequency %}
+                <label class="flex items-center gap-3 p-3 rounded-lg border border-slate-700 hover:border-brick-500/50 cursor-pointer">
+                    {{ choice.tag }}
+                    <span class="text-slate-300">{{ choice.choice_label }}</span>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <button type="submit" class="w-full bg-brick-500 hover:bg-brick-600 text-white py-3 rounded-lg font-medium">Save</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Notifications - BrickVault{% endblock %}
+
+{% block content %}
+<div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold text-white">Notifications</h1>
+    {% if notifications %}
+    <a href="{% url 'catalog:notification_mark_all_read' %}" class="text-sm text-slate-400 hover:text-white">Mark all as read</a>
+    {% endif %}
+</div>
+<div class="space-y-4 max-w-2xl">
+    {% for notification in notifications %}
+    {% include 'components/notification_card.html' with notification=notification %}
+    {% empty %}
+    <div class="text-center py-16 bg-slate-800/30 rounded-xl border border-slate-700">
+        <p class="text-slate-500">No notifications yet.</p>
+        <p class="text-slate-600 text-sm mt-1">Add items to your watchlist to get price change alerts.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

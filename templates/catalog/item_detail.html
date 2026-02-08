@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block title %}{{ code }} - {{ item.name }} - BrickVault{% endblock %}
+
+{% block content %}
+{% if item %}
+<div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row gap-8">
+        <div class="md:w-1/2">
+            <div class="aspect-square bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+                {% if item.image %}
+                <img src="{{ item.image }}" alt="{{ item.name }}" class="w-full h-full object-cover">
+                {% else %}
+                <div class="w-full h-full flex items-center justify-center text-slate-600">
+                    <svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14"/></svg>
+                </div>
+                {% endif %}
+            </div>
+            {% if item.images %}
+            <div class="flex gap-2 mt-4 overflow-x-auto">
+                {% for img in item.images %}
+                <img src="{{ img }}" alt="" class="w-20 h-20 object-cover rounded border border-slate-700">
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="md:w-1/2">
+            <span class="font-mono text-brick-400 text-lg">{{ code }}</span>
+            <h1 class="text-3xl font-bold text-white mt-2">{{ item.name }}</h1>
+            {% if item.themes %}
+            <div class="flex flex-wrap gap-2 mt-2">
+                {% for theme in item.themes %}
+                <a href="{% url 'catalog:browse' %}?category={{ theme.id }}" class="text-slate-400 hover:text-brick-400">{{ theme.name }}</a>{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if item.price %}
+            <p class="text-3xl font-bold text-brick-400 mt-4">${{ item.price }}</p>
+            {% else %}
+            <p class="text-slate-500 mt-4">Price on request</p>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <div class="flex gap-3 mt-6">
+                {% if in_watchlist %}
+                <a href="{% url 'catalog:watchlist_remove' code %}" class="px-4 py-2 bg-slate-700 hover:bg-red-500/20 text-slate-300 hover:text-red-400 rounded-lg border border-slate-600">Remove from Watchlist</a>
+                <a href="{% url 'catalog:watchlist_toggle_favorite' code %}" class="px-4 py-2 rounded-lg border {% if is_favorite %}bg-brick-500/20 border-brick-500 text-brick-400{% else %}border-slate-600 text-slate-400 hover:border-brick-500 hover:text-brick-400{% endif %}">
+                    {% if is_favorite %}★ Favorited{% else %}☆ Add to Favorites{% endif %}
+                </a>
+                {% else %}
+                <a href="{% url 'catalog:watchlist_add' code %}" class="px-4 py-2 bg-brick-500 hover:bg-brick-600 text-white rounded-lg font-medium">Add to Watchlist</a>
+                {% endif %}
+            </div>
+            {% else %}
+            <p class="text-slate-500 mt-6"><a href="{% url 'accounts:login' %}" class="text-brick-400 hover:underline">Log in</a> to add to watchlist</p>
+            {% endif %}
+            {% if item.description %}
+            <div class="mt-8">
+                <h2 class="text-lg font-semibold text-white mb-2">Description</h2>
+                <p class="text-slate-400 whitespace-pre-wrap">{{ item.description }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if sellers %}
+    <div class="mt-12">
+        <h2 class="text-2xl font-bold text-white mb-6">Available Sellers</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full border border-slate-700 rounded-xl overflow-hidden">
+                <thead class="bg-slate-800">
+                    <tr>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium">Seller</th>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium">Source</th>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium">Price</th>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium">Quantity</th>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium">Condition</th>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium">Complete</th>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium">Country</th>
+                        <th class="text-left px-4 py-3 text-slate-400 font-medium"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for seller in sellers %}
+                    <tr class="border-t border-slate-700 hover:bg-slate-800/50">
+                        <td class="px-4 py-3">
+                            <span class="text-white font-medium">{{ seller.name|default:"—" }}</span>
+                            {% if seller.description %}
+                            <p class="text-slate-500 text-sm mt-0.5 line-clamp-2">{{ seller.description }}</p>
+                            {% endif %}
+                        </td>
+                        <td class="px-4 py-3 text-slate-400">{{ seller.source }}</td>
+                        <td class="px-4 py-3">
+                            {% if seller.usd_price %}
+                            <span class="text-brick-400 font-bold">${{ seller.usd_price }}</span>
+                            {% endif %}
+                            {% if seller.real_price %}<span class="text-slate-500 text-sm ml-1">({{ seller.real_price }})</span>{% endif %}
+                        </td>
+                        <td class="px-4 py-3 text-slate-400">{{ seller.quantity|default:"—" }}</td>
+                        <td class="px-4 py-3 text-slate-400">{{ seller.condition|default:"—" }}</td>
+                        <td class="px-4 py-3 text-slate-400">{{ seller.complete|default:"—" }}</td>
+                        <td class="px-4 py-3 text-slate-400">{{ seller.country|default:"—" }}</td>
+                        <td class="px-4 py-3">
+                            {% if seller.buy_url %}
+                            <a href="{{ seller.buy_url }}" target="_blank" rel="noopener" class="text-brick-400 hover:text-brick-300 font-medium">Buy →</a>
+                            {% else %}
+                            —
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% else %}
+<p class="text-slate-500">Set {{ code }} not found.</p>
+{% endif %}
+{% endblock %}

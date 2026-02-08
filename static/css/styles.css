@@ -1,0 +1,34 @@
+/* BrickVault - Tailwind CDN handles base styling */
+
+/* Ensure form inputs in auth pages are styled */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    background-color: rgb(30 41 59);
+    border: 1px solid rgb(51 65 85);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(249 115 22);
+    border-color: transparent;
+}
+input::placeholder {
+    color: rgb(100 116 139);
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

@@ -27,6 +27,7 @@ class SetInfo(models.Model):
     lego_url = models.URLField(null=True, blank=True, max_length=10485759)
     bricksandminifigsanaheim_url = models.URLField(null=True, blank=True, max_length=10485759)
     brickeconomy_url = models.URLField(null=True, blank=True, max_length=10485759)
+    view_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return str(self.bricklink_name or self.lego_name or  self.brickeconomy_name  or self.bricksandminifigsanaheim_name)

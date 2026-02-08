@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Watchlist - BrickVault{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold text-white mb-8">My Watchlist</h1>
+
+{% if favorites or watching %}
+<div class="space-y-12">
+    {% if favorites %}
+    <section>
+        <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <svg class="w-6 h-6 text-brick-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Favorites
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {% for item in favorites %}
+            <div class="relative group">
+                {% include 'components/item_card.html' with item=item %}
+                <div class="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition">
+                    <a href="{% url 'catalog:watchlist_toggle_favorite' item.code %}" class="p-1 bg-slate-900/90 rounded" title="Remove from favorites">☆</a>
+                    <a href="{% url 'catalog:watchlist_remove' item.code %}" class="p-1 bg-slate-900/90 rounded text-red-400" title="Remove">✕</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+    {% if watching %}
+    <section>
+        <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            Watching
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {% for item in watching %}
+            <div class="relative group">
+                {% include 'components/item_card.html' with item=item %}
+                <div class="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition">
+                    <a href="{% url 'catalog:watchlist_toggle_favorite' item.code %}" class="p-1 bg-slate-900/90 rounded" title="Add to favorites">★</a>
+                    <a href="{% url 'catalog:watchlist_remove' item.code %}" class="p-1 bg-slate-900/90 rounded text-red-400" title="Remove">✕</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% else %}
+<div class="text-center py-16">
+    <p class="text-slate-500 text-lg mb-4">Your watchlist is empty.</p>
+    <a href="{% url 'catalog:browse' %}" class="text-brick-400 hover:text-brick-300 font-medium">Browse catalog</a> to add items.
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+<div class="{% if not notification.is_read %}bg-slate-800/80 border-l-4 border-brick-500{% else %}bg-slate-800/30{% endif %} rounded-lg p-4 border border-slate-700/50">
+    <div class="flex justify-between items-start gap-4">
+        <div class="flex-1 min-w-0">
+            <p class="text-slate-300 text-sm">{{ notification.message }}</p>
+            {% if notification.set_obj %}
+            <a href="{% url 'catalog:item_detail' notification.set_obj.set_id %}" class="text-brick-400 hover:text-brick-300 text-sm font-medium mt-1 inline-block">
+                View {{ notification.set_obj.set_id }}
+            </a>
+            {% endif %}
+            <p class="text-slate-500 text-xs mt-2">{{ notification.created_at|timesince }} ago</p>
+        </div>
+        {% if not notification.is_read %}
+        <a href="{% url 'catalog:notification_mark_read' notification.pk %}" class="text-xs text-slate-500 hover:text-white whitespace-nowrap">Mark read</a>
+        {% endif %}
+    </div>
+</div>
