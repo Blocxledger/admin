@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
+{% block sidebar %}{% include 'components/sidebar.html' %}{% endblock %}
 {% block title %}Notification Settings - BrickVault{% endblock %}
 {% block content %}
-<div class="max-w-md mx-auto">
-    <h1 class="text-3xl font-bold text-white mb-6">Notification Settings</h1>
-    <p class="text-slate-400 mb-6">Choose how often you receive in-app notifications about price changes for items in your watchlist.</p>
-    <form method="post" class="space-y-4 bg-slate-800/50 rounded-xl border border-slate-700 p-6">
+<div class="max-w-md">
+    <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Notification Settings</h1>
+    <p class="text-slate-600 dark:text-slate-400 mb-8">Choose how often you receive in-app notifications about price changes for items in your watchlist.</p>
+    <form method="post" class="space-y-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-8 shadow-sm">
         {% csrf_token %}
         <div>
-            <label class="block text-sm font-medium text-slate-400 mb-3">Frequency</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Frequency</label>
             <div class="space-y-2">
                 {% for choice in form.notification_frequency %}
-                <label class="flex items-center gap-3 p-3 rounded-lg border border-slate-700 hover:border-brick-500/50 cursor-pointer">
+                <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brick-500/50 dark:hover:border-brick-500/50 cursor-pointer transition-colors has-[:checked]:border-brick-500 has-[:checked]:bg-brick-50 dark:has-[:checked]:bg-brick-500/10">
                     {{ choice.tag }}
-                    <span class="text-slate-300">{{ choice.choice_label }}</span>
+                    <span class="text-slate-700 dark:text-slate-300">{{ choice.choice_label }}</span>
                 </label>
                 {% endfor %}
             </div>
         </div>
-        <button type="submit" class="w-full bg-brick-500 hover:bg-brick-600 text-white py-3 rounded-lg font-medium">Save</button>
+        <button type="submit" class="w-full py-3 rounded-xl bg-brick-500 hover:bg-brick-600 text-white font-medium shadow-sm hover:shadow transition-all">Save</button>
     </form>
 </div>
 {% endblock %}

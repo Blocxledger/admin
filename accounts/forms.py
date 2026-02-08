@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 from .models import UserProfile
 
-INPUT_CLASS = 'w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brick-500 text-white placeholder-slate-500'
+INPUT_CLASS = 'w-full rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brick-500 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-500'
 
 
 class CustomAuthenticationForm(AuthenticationForm):

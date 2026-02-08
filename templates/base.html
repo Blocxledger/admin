@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BrickVault{% endblock %}</title>
+    <script>
+        (function(){var t=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',t==='dark'||(t!=='light'&&d));})();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         brick: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12' }
                     },
-                    fontFamily: { sans: ['DM Sans', 'system-ui', 'sans-serif'] }
+                    fontFamily: { sans: ['DM Sans', 'system-ui', 'sans-serif'] },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'soft-dark': '0 2px 15px -3px rgba(0, 0, 0, 0.3), 0 10px 20px -2px rgba(0, 0, 0, 0.2)',
+                    }
                 }
             }
         }
@@ -23,32 +31,37 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block extra_head %}{% endblock %}
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased min-h-screen transition-colors duration-300">
     {% include 'components/navbar.html' %}
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {% if messages %}
-        <div class="mb-6 space-y-2">
-            {% for message in messages %}
-            <div class="rounded-lg px-4 py-3 text-sm font-medium
-                {% if message.tags == 'success' %}bg-emerald-500/20 text-emerald-400 border border-emerald-500/30
-                {% elif message.tags == 'error' %}bg-red-500/20 text-red-400 border border-red-500/30
-                {% elif message.tags == 'warning' %}bg-amber-500/20 text-amber-400 border border-amber-500/30
-                {% else %}bg-slate-700/50 text-slate-300 border border-slate-600{% endif %}">
-                {{ message }}
+    <div class="flex">
+        {% block sidebar %}{% endblock %}
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {% if messages %}
+            <div class="mb-6 space-y-2">
+                {% for message in messages %}
+                <div class="rounded-xl px-4 py-3 text-sm font-medium shadow-sm transition-all
+                    {% if message.tags == 'success' %}bg-emerald-50 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30
+                    {% elif message.tags == 'error' %}bg-red-50 dark:bg-red-500/20 text-red-800 dark:text-red-400 border border-red-200 dark:border-red-500/30
+                    {% elif message.tags == 'warning' %}bg-amber-50 dark:bg-amber-500/20 text-amber-800 dark:text-amber-400 border border-amber-200 dark:border-amber-500/30
+                    {% else %}bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600{% endif %}">
+                    {{ message }}
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
-        {% endif %}
+            {% endif %}
 
-        {% block content %}{% endblock %}
-    </main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
 
-    <footer class="border-t border-slate-800 mt-16 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 text-sm">
+    <footer class="border-t border-slate-200 dark:border-slate-800 mt-16 py-8 bg-white dark:bg-slate-900/50 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 dark:text-slate-400 text-sm">
             &copy; {% now "Y" %} BrickVault. All rights reserved.
         </div>
     </footer>
+
+    {% include 'components/theme_toggle.html' %}
     {% block extra_js %}{% endblock %}
 </body>
 </html>

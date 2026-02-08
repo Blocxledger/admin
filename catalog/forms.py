@@ -21,10 +21,10 @@ class BrowseFilterForm(forms.Form):
         queryset=Theme.objects.none(),
         required=False,
         empty_label='All Themes',
-        widget=forms.Select(attrs={'class': 'w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500'}),
+        widget=forms.Select(attrs={'class': 'w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100'}),
     )
-    min_price = forms.DecimalField(required=False, min_value=0, widget=forms.NumberInput(attrs={'class': 'w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm'}))
-    max_price = forms.DecimalField(required=False, min_value=0, widget=forms.NumberInput(attrs={'class': 'w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm'}))
+    min_price = forms.DecimalField(required=False, min_value=0, widget=forms.NumberInput(attrs={'class': 'w-full rounded-lg px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100'}))
+    max_price = forms.DecimalField(required=False, min_value=0, widget=forms.NumberInput(attrs={'class': 'w-full rounded-lg px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100'}))
     sort_by = forms.ChoiceField(
         choices=[
             ('-view_count', 'Most Viewed'),
@@ -35,7 +35,7 @@ class BrowseFilterForm(forms.Form):
         ],
         required=False,
         initial='-view_count',
-        widget=forms.Select(attrs={'class': 'w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500'}),
+        widget=forms.Select(attrs={'class': 'w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100'}),
     )
 
     def __init__(self, *args, **kwargs):

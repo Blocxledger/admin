@@ -1,0 +1,10 @@
+{# Usage: {% include 'components/badge.html' with text="New" variant="default" %} #}
+{# Variants: default, brick, success, warning, danger #}
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+    {% if variant == 'brick' %}bg-brick-100 dark:bg-brick-500/20 text-brick-800 dark:text-brick-400
+    {% elif variant == 'success' %}bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-400
+    {% elif variant == 'warning' %}bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-400
+    {% elif variant == 'danger' %}bg-red-100 dark:bg-red-500/20 text-red-800 dark:text-red-400
+    {% else %}bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300{% endif %}">
+    {{ text }}
+</span>

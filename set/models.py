@@ -28,6 +28,7 @@ class SetInfo(models.Model):
     bricksandminifigsanaheim_url = models.URLField(null=True, blank=True, max_length=10485759)
     brickeconomy_url = models.URLField(null=True, blank=True, max_length=10485759)
     view_count = models.PositiveIntegerField(default=0)
+    scraped_at = models.DateTimeField(auto_created=True)
 
     def __str__(self):
         return str(self.bricklink_name or self.lego_name or  self.brickeconomy_name  or self.bricksandminifigsanaheim_name)
@@ -50,6 +51,7 @@ class Sellers(models.Model):
     quantity = models.IntegerField(null=True, blank=True)
     buy_url = models.URLField(null=True, blank=True, max_length=10485759)
     source = models.CharField(choices=SOURCES, max_length=10485759, db_index=True)
+    scraped_at = models.DateTimeField(auto_created=True)
 
     def __str__(self):
         return str(self.name)

@@ -1,0 +1,13 @@
+{# Usage: {% include 'components/button.html' with variant="primary" text="Submit" href="/path" %} #}
+{# Variants: primary, secondary, ghost, danger #}
+{% with variant=variant|default:"primary" text=text|default:"Button" %}
+{% if href %}
+<a href="{{ href }}" class="{% if variant == 'primary' %}bg-brick-500 hover:bg-brick-600 text-white shadow-sm hover:shadow{% elif variant == 'secondary' %}bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200{% elif variant == 'ghost' %}bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300{% elif variant == 'danger' %}bg-red-500 hover:bg-red-600 text-white{% endif %} inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brick-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900">
+    {{ text }}
+</a>
+{% else %}
+<button type="{{ type|default:'submit' }}" class="{% if variant == 'primary' %}bg-brick-500 hover:bg-brick-600 text-white shadow-sm hover:shadow{% elif variant == 'secondary' %}bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200{% elif variant == 'ghost' %}bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300{% elif variant == 'danger' %}bg-red-500 hover:bg-red-600 text-white{% endif %} inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brick-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900">
+    {{ text }}
+</button>
+{% endif %}
+{% endwith %}

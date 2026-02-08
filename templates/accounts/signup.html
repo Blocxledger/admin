@@ -2,18 +2,21 @@
 {% block title %}Sign Up - BrickVault{% endblock %}
 {% block content %}
 <div class="max-w-md mx-auto">
-    <h1 class="text-3xl font-bold text-white mb-6">Create Account</h1>
-    <form method="post" class="space-y-4 bg-slate-800/50 rounded-xl border border-slate-700 p-6">
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Create account</h1>
+        <p class="text-slate-600 dark:text-slate-400">Join BrickVault to track sets and get price alerts</p>
+    </div>
+    <form method="post" class="space-y-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-8 shadow-sm">
         {% csrf_token %}
         {% for field in form %}
         <div>
-            <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-slate-400 mb-1">{{ field.label }}</label>
+            <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">{{ field.label }}</label>
             {{ field }}
-            {% if field.errors %}<p class="text-red-400 text-sm mt-1">{{ field.errors.0 }}</p>{% endif %}
+            {% if field.errors %}<p class="text-red-500 text-sm mt-1">{{ field.errors.0 }}</p>{% endif %}
         </div>
         {% endfor %}
-        <button type="submit" class="w-full bg-brick-500 hover:bg-brick-600 text-white py-3 rounded-lg font-medium">Sign Up</button>
+        <button type="submit" class="w-full py-3 rounded-xl bg-brick-500 hover:bg-brick-600 text-white font-medium shadow-sm hover:shadow transition-all">Sign Up</button>
     </form>
-    <p class="text-center text-slate-500 mt-4">Already have an account? <a href="{% url 'accounts:login' %}" class="text-brick-400 hover:underline">Log in</a></p>
+    <p class="text-center text-slate-600 dark:text-slate-400 mt-6">Already have an account? <a href="{% url 'accounts:login' %}" class="text-brick-500 dark:text-brick-400 hover:underline font-medium">Log in</a></p>
 </div>
 {% endblock %}

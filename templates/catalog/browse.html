@@ -2,53 +2,54 @@
 {% block title %}Browse - BrickVault{% endblock %}
 
 {% block content %}
-<h1 class="text-3xl font-bold text-white mb-8">Browse Catalog</h1>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Browse Catalog</h1>
 
 <div class="flex flex-col lg:flex-row gap-8">
-    <aside class="lg:w-64 flex-shrink-0">
-        <form method="get" class="bg-slate-800/50 rounded-xl border border-slate-700 p-6 space-y-4">
-            <h3 class="font-semibold text-white">Filters</h3>
+    <aside class="lg:w-72 flex-shrink-0">
+        <form method="get" class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 space-y-4 shadow-sm">
+            <h3 class="font-semibold text-slate-900 dark:text-white">Filters</h3>
             <div>
-                <label class="block text-sm text-slate-400 mb-2">Theme</label>
+                <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Theme</label>
                 {{ form.category }}
             </div>
             <div>
-                <label class="block text-sm text-slate-400 mb-2">Min Price ($)</label>
+                <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Min Price ($)</label>
                 <input type="number" name="min_price" value="{{ form.min_price.value|default:'' }}" step="0.01" min="0" placeholder="0"
-                       class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500">
+                       class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 text-slate-900 dark:text-slate-100">
             </div>
             <div>
-                <label class="block text-sm text-slate-400 mb-2">Max Price ($)</label>
+                <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Max Price ($)</label>
                 <input type="number" name="max_price" value="{{ form.max_price.value|default:'' }}" step="0.01" min="0" placeholder="Any"
-                       class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500">
+                       class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 text-slate-900 dark:text-slate-100">
             </div>
             <div>
-                <label class="block text-sm text-slate-400 mb-2">Sort by</label>
+                <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Sort by</label>
                 {{ form.sort_by }}
             </div>
-            <button type="submit" class="w-full bg-brick-500 hover:bg-brick-600 text-white py-2 rounded-lg font-medium">Apply Filters</button>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-brick-500 hover:bg-brick-600 text-white font-medium shadow-sm hover:shadow transition-all">
+                Apply Filters
+            </button>
         </form>
     </aside>
-    <div class="flex-1">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="flex-1 min-w-0">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {% for item in items %}
             {% include 'components/item_card.html' with item=item %}
             {% empty %}
-            <div class="col-span-full text-center py-16 text-slate-500">
-                No items match your filters. <a href="{% url 'catalog:browse' %}" class="text-brick-400 hover:underline">Clear filters</a>
-            </div>
+            {% url 'catalog:browse' as browse_url %}
+{% include 'components/empty_state.html' with title="No items match your filters" message="Try adjusting or clearing your filters to see more results." action_url=browse_url action_text="Clear filters" %}
             {% endfor %}
         </div>
         {% if page_obj.has_other_pages %}
         <nav class="mt-8 flex justify-center gap-2">
             {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-               class="px-4 py-2 bg-slate-800 rounded-lg hover:bg-slate-700">Previous</a>
+               class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brick-500/50 text-slate-700 dark:text-slate-300 hover:text-brick-500 transition-colors">Previous</a>
             {% endif %}
-            <span class="px-4 py-2 text-slate-400">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            <span class="px-4 py-2 text-slate-500 dark:text-slate-400">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
             {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-               class="px-4 py-2 bg-slate-800 rounded-lg hover:bg-slate-700">Next</a>
+               class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brick-500/50 text-slate-700 dark:text-slate-300 hover:text-brick-500 transition-colors">Next</a>
             {% endif %}
         </nav>
         {% endif %}

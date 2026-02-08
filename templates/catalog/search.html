@@ -3,27 +3,32 @@
 
 {% block content %}
 <div class="mb-8">
-    <h1 class="text-3xl font-bold text-white mb-4">Search Items</h1>
+    <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Search Items</h1>
     <form action="{% url 'catalog:search' %}" method="get" class="max-w-2xl">
         <div class="flex gap-2">
             <input type="text" name="code" value="{{ form.code.value|default:'' }}"
                    placeholder="Enter set code or name..."
-                   class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brick-500">
-            <button type="submit" class="bg-brick-500 hover:bg-brick-600 text-white px-6 py-3 rounded-lg font-medium">Search</button>
+                   class="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brick-500 shadow-sm">
+            <button type="submit" class="px-6 py-3 rounded-xl bg-brick-500 hover:bg-brick-600 text-white font-medium shadow-sm hover:shadow transition-all">
+                Search
+            </button>
         </div>
     </form>
 </div>
 
 {% if items %}
-<div class="mb-4 text-slate-400">{{ items|length }} result{{ items|length|pluralize }}</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+<div class="mb-4 text-slate-600 dark:text-slate-400">{{ items|length }} result{{ items|length|pluralize }}</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
     {% for item in items %}
     {% include 'components/item_card.html' with item=item %}
     {% endfor %}
 </div>
 {% elif form.code.value %}
-<p class="text-slate-500">No items found for "{{ form.code.value }}". Try a different search.</p>
+{% url 'catalog:search' as search_url %}
+{% include 'components/empty_state.html' with title="No items found" message="Try a different search term or browse the catalog." action_url=search_url action_text="New search" %}
 {% else %}
-<p class="text-slate-500">Enter a set code or name to search.</p>
+<div class="rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700 p-12 text-center">
+    <p class="text-slate-500 dark:text-slate-400">Enter a set code or name to search the catalog.</p>
+</div>
 {% endif %}
 {% endblock %}
