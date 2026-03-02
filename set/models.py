@@ -51,7 +51,7 @@ class Sellers(models.Model):
     quantity = models.IntegerField(null=True, blank=True)
     buy_url = models.URLField(null=True, blank=True, max_length=10485759)
     source = models.CharField(choices=SOURCES, max_length=10485759, db_index=True)
-    scraped_at = models.DateTimeField(auto_created=True)
+    scraped_at = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 
     def __str__(self):
