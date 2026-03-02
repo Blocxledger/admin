@@ -64,3 +64,16 @@ class Images(models.Model):
 
     def __str__(self):
         return str(self.link)
+
+
+class DailySetAverage(models.Model):
+    set = models.ForeignKey(SetId, on_delete=models.CASCADE)
+    date = models.DateField(db_index=True)
+    average_price = models.FloatField()
+    sellers_count = models.IntegerField()
+
+    class Meta:
+        unique_together = ("set", "date")
+
+    def __str__(self):
+        return f"{self.set} - {self.date} - {self.average_price}"

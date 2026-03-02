@@ -1,14 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, Avg
 from django.core.paginator import Paginator
 
 from set.models import SetId, SetInfo, Images, Sellers
 from theme.models import Theme
 from .models import Watchlist, Notification
 from .forms import ItemSearchForm, BrowseFilterForm
-
+from django.db.models.functions import TruncDate
 
 def _get_set_display(set_info):
     """Get display name, price, description, image from SetInfo."""
@@ -124,17 +124,21 @@ def item_detail_view(request, code):
     if not set_info:
         return render(request, 'catalog/item_detail.html', {'item': None, 'code': code})
 
+    # Increment view count
     set_info.view_count += 1
     set_info.save(update_fields=['view_count'])
 
+    # Prepare item dict
     item = _get_set_display(set_info)
     item['set_info'] = set_info
     item['code'] = code
     item['themes'] = set_info.themes.all()
     item['images'] = list(Images.objects.filter(set=set_obj).values_list('link', flat=True))
 
+    # Fetch sellers
     sellers = Sellers.objects.filter(set=set_obj).order_by('usd_price')
 
+    # Watchlist info
     in_watchlist = False
     is_favorite = False
     if request.user.is_authenticated:
@@ -143,7 +147,27 @@ def item_detail_view(request, code):
             in_watchlist = True
             is_favorite = w.is_favorite
 
-    context = {'item': item, 'code': code, 'sellers': sellers, 'in_watchlist': in_watchlist, 'is_favorite': is_favorite}
+    # --- Calculate daily average prices for this set ---
+    qs = (
+        Sellers.objects
+        .filter(set=set_obj, active=True, usd_price__isnull=False)
+        .annotate(date=TruncDate('scraped_at'))
+        .values('date')
+        .annotate(avg_price=Avg('usd_price'))
+        .order_by('date')
+    )
+    daily_avg_data = list(qs)  # list of dicts with 'date' and 'avg_price'
+
+    # Pass all to template
+    context = {
+        'item': item,
+        'code': code,
+        'sellers': sellers,
+        'in_watchlist': in_watchlist,
+        'is_favorite': is_favorite,
+        'daily_avg_data': daily_avg_data,  # <- this is for chart.js
+    }
+
     return render(request, 'catalog/item_detail.html', context)
 
 

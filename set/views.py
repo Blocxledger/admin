@@ -123,3 +123,29 @@ def ingest_set(request):
         "status": "ok",
         "set_id": set_obj.set_id
     })
+
+from django.http import JsonResponse
+from django.db.models import Avg
+from django.db.models.functions import TruncDate
+from .models import Sellers
+
+def avg_prices_per_date(request, set_id):
+    """
+    Returns JSON with average USD price per day for a given set
+    """
+    # Filter active sellers with valid price for the given set
+    qs = (
+        Sellers.objects
+        .filter(set_id=set_id, active=True, usd_price__isnull=False)
+        # Truncate datetime to date
+        .annotate(date=TruncDate('scraped_at'))
+        # Group by date and calculate average price
+        .values('date')
+        .annotate(avg_price=Avg('usd_price'))
+        .order_by('date')
+    )
+
+    # Convert queryset to list of dicts for JSON
+    data = list(qs)
+
+    return JsonResponse(data, safe=False)
