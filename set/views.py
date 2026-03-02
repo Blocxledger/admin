@@ -42,6 +42,9 @@ def ingest_set(request):
         if category:
             if isinstance(category, list):
                 for name in category:
+                    if not name:
+                        print(data)
+                        continue
                     parent, _ = Theme.objects.get_or_create(
                         name=name,
                         parent=parent,
