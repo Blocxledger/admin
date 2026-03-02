@@ -39,18 +39,22 @@ def ingest_set(request):
         # -------------------
         parent = None
         category = data.get("category", [])
-        if isinstance(category, list):
-            for name in category:
+        if category:
+            if isinstance(category, list):
+                for name in category:
+                    parent, _ = Theme.objects.get_or_create(
+                        name=name,
+                        parent=parent,
+                        source=data["source"]
+                    )
+            else:
                 parent, _ = Theme.objects.get_or_create(
-                    name=name,
-                    parent=parent,
-                    source=data["source"]
-                )
+                        name=category,
+                        source=data["source"]
+                    )
         else:
-            parent, _ = Theme.objects.get_or_create(
-                    name=category,
-                    source=data["source"]
-                )
+            print(data)
+        
 
         # -------------------
         # SET INFO
@@ -81,20 +85,23 @@ def ingest_set(request):
         # -------------------
         # IMAGES
         # -------------------
-        Images.objects.filter(set=set_obj).delete()
         for img in data.get("images", []):
-            Images.objects.create(
+            Images.objects.get_or_create(
                 set=set_obj,
                 link=img
             )
-
+        if img := data.get('image'):
+            Images.objects.get_or_create(
+                set=set_obj,
+                link=img
+            )
         # -------------------
         # SELLERS
         # -------------------
         Sellers.objects.filter(
             set=set_obj,
             source=data.get("source")
-        ).delete()
+        ).update(active=False)
 
         for s in data.get("sellers", []):
             Sellers.objects.create(
@@ -109,6 +116,7 @@ def ingest_set(request):
                 quantity=s.get("quantity"),
                 buy_url=s.get("buy_url"),
                 source=data.get("source"),
+                active=True
             )
 
     return JsonResponse({

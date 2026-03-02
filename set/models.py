@@ -52,6 +52,7 @@ class Sellers(models.Model):
     buy_url = models.URLField(null=True, blank=True, max_length=10485759)
     source = models.CharField(choices=SOURCES, max_length=10485759, db_index=True)
     scraped_at = models.DateTimeField(auto_created=True)
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.name)
@@ -59,6 +60,7 @@ class Sellers(models.Model):
 class Images(models.Model):
     set = models.ForeignKey(SetId, on_delete=models.CASCADE)
     link = models.URLField(max_length=10485759)
+
 
     def __str__(self):
         return str(self.link)

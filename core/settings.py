@@ -82,15 +82,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 import os
 
+import dj_database_url
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("PGDATABASE"),
-        "USER": os.getenv("PGUSER"),
-        "PASSWORD": os.getenv("PGPASSWORD"),
-        "HOST": os.getenv("PGHOST"),
-        "PORT": os.getenv("PGPORT", "5432"),
-    }
+    "default": dj_database_url.config(
+        default=os.environ.get("DB_URL"),
+        conn_max_age=600,
+        ssl_require=True,
+    ),
 }
 
 # Password validation
