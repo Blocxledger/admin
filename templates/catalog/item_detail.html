@@ -188,11 +188,6 @@ BrickVault{% endblock %} {% block content %} {% if item %}
             <th
               class="text-left px-4 py-3 text-slate-600 dark:text-slate-400 font-medium text-sm"
             >
-              Source
-            </th>
-            <th
-              class="text-left px-4 py-3 text-slate-600 dark:text-slate-400 font-medium text-sm"
-            >
               Price
             </th>
             <th
@@ -236,10 +231,6 @@ BrickVault{% endblock %} {% block content %} {% if item %}
                 {{ seller.description }}
               </p>
               {% endif %}
-            </td>
-            <td class="px-4 py-3">
-              {% include 'components/badge.html' with text=seller.source
-              variant="brick" %}
             </td>
             <td class="px-4 py-3">
               {% if seller.usd_price %}

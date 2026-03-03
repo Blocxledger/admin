@@ -3,23 +3,64 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q, Avg
 from django.core.paginator import Paginator
-
+import os
 from set.models import SetId, SetInfo, Images, Sellers
 from theme.models import Theme
 from .models import Watchlist, Notification
 from .forms import ItemSearchForm, BrowseFilterForm
 from django.db.models.functions import TruncDate
+import requests
+
+def generate_description(brickeconomy_desc, bricksandminifigs_desc, lego_desc):
+    """
+    Generate a new description using DeepSeek API
+    from the provided descriptions (any of them can be empty)
+    """
+    # Combine non-empty descriptions
+    combined_texts = [desc for desc in [brickeconomy_desc, bricksandminifigs_desc, lego_desc] if desc]
+    if not combined_texts:
+        return
+    # If all are empty, send a placeholder prompt
+    prompt = " ".join(combined_texts) if combined_texts else "Generate a creative LEGO set description."
+
+    # DeepSeek API request (example)
+    api_url = "https://api.deepseek.com/v1/generate"  # replace with actual endpoint
+    api_key = os.getenv('DEEPSEEK')  # replace with your key
+
+    payload = {
+        "prompt": prompt,
+        "max_tokens": 300  # adjust length as needed
+    }
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+
+    try:
+        response = requests.post(api_url, json=payload, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        # Adjust according to API response structure
+        return data.get("generated_text", "")
+    except requests.RequestException as e:
+        print("Error generating description:", e)
+        return ""
+
+
 
 def _get_set_display(set_info):
     """Get display name, price, description, image from SetInfo."""
     name = (set_info.bricklink_name or set_info.lego_name or set_info.brickeconomy_name or
             set_info.bricksandminifigsanaheim_name or 'Unknown')
     price = set_info.lego_price
-    desc = (set_info.lego_description or set_info.brickeconomy_description or
-            set_info.bricksandminifigsanaheim_desctiption or '')
+    if not set_info.description:
+        if any(set_info.lego_description,set_info.bricksandminifigsanaheim_desctiption,set_info.brickeconomy_description):
+            set_info.description = generate_description(set_info.brickeconomy_description, set_info.bricksandminifigsanaheim_desctiption, set_info.lego_description)
+            set_info.save()
     img = Images.objects.filter(set=set_info.set).first()
     image_url = img.link if img else ''
-    return {'name': name, 'price': price, 'description': desc, 'image': image_url}
+    return {'name': name, 'price': price, 'description': set_info.description, 'image': image_url}
 
 
 def home_view(request):
@@ -133,11 +174,27 @@ def item_detail_view(request, code):
     item['set_info'] = set_info
     item['code'] = code
     item['themes'] = set_info.themes.all()
-    item['images'] = list(Images.objects.filter(set=set_obj).values_list('link', flat=True))
-
+    item['images'] = [img for img in Images.objects.filter(set=set_obj).values_list('link', flat=True) if 'None' not in img ]
     # Fetch sellers
     sellers = Sellers.objects.filter(set=set_obj).order_by('usd_price')
+    qs = Sellers.objects.filter(set=set_obj).order_by('usd_price')
+    unique_sellers = []
+    seen = set()
 
+    for seller in qs:
+        key = (
+            seller.name,
+            seller.usd_price,
+            seller.buy_url,
+            seller.source,
+            seller.quantity,
+            seller.condition,
+            seller.complete,
+            seller.country
+        )
+    if key not in seen:
+        unique_sellers.append(seller)
+        seen.add(key)
     # Watchlist info
     in_watchlist = False
     is_favorite = False
@@ -162,7 +219,7 @@ def item_detail_view(request, code):
     context = {
         'item': item,
         'code': code,
-        'sellers': sellers,
+        'sellers': unique_sellers,
         'in_watchlist': in_watchlist,
         'is_favorite': is_favorite,
         'daily_avg_data': daily_avg_data,  # <- this is for chart.js

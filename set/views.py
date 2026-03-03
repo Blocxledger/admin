@@ -14,6 +14,7 @@ from .models import (
 )
 
 
+
 @csrf_exempt
 def ingest_set(request):
     if request.method != "POST":
@@ -43,7 +44,6 @@ def ingest_set(request):
             if isinstance(category, list):
                 for name in category:
                     if not name:
-                        print(data)
                         continue
                     parent, _ = Theme.objects.get_or_create(
                         name=name,
@@ -107,7 +107,7 @@ def ingest_set(request):
         ).update(active=False)
 
         for s in data.get("sellers", []):
-            Sellers.objects.create(
+            seller, _ =Sellers.objects.get_or_create(
                 set=set_obj,
                 name=s.get("seller_name"),
                 description=s.get("seller_description"),
@@ -119,8 +119,9 @@ def ingest_set(request):
                 quantity=s.get("quantity"),
                 buy_url=s.get("buy_url"),
                 source=data.get("source"),
-                active=True
             )
+            seller.active = True
+            seller.save()
 
     return JsonResponse({
         "status": "ok",
