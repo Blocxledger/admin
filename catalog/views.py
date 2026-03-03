@@ -205,16 +205,19 @@ def item_detail_view(request, code):
             is_favorite = w.is_favorite
 
     # --- Calculate daily average prices for this set ---
-    qs = (
-        Sellers.objects
-        .filter(set=set_obj, active=True, usd_price__isnull=False)
+    daily_avg_qs = (
+        Sellers.objects.filter(set=set_obj, usd_price__isnull=False)
         .annotate(date=TruncDate('scraped_at'))
         .values('date')
         .annotate(avg_price=Avg('usd_price'))
         .order_by('date')
     )
-    daily_avg_data = list(qs)  # list of dicts with 'date' and 'avg_price'
 
+    # Convert date to string format for JS
+    daily_avg_data = [
+        {'date': item['date'].strftime('%d %b %Y'), 'avg_price': float(item['avg_price'])}
+        for item in daily_avg_qs
+    ]
     # Pass all to template
     context = {
         'item': item,
