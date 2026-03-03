@@ -176,7 +176,6 @@ def item_detail_view(request, code):
     item['themes'] = set_info.themes.all()
     item['images'] = [img for img in Images.objects.filter(set=set_obj).values_list('link', flat=True) if 'None' not in img ]
     # Fetch sellers
-    sellers = Sellers.objects.filter(set=set_obj).order_by('usd_price')
     qs = Sellers.objects.filter(set=set_obj).order_by('usd_price')
     unique_sellers = []
     seen = set()
@@ -215,7 +214,7 @@ def item_detail_view(request, code):
 
     # Convert date to string format for JS
     daily_avg_data = [
-        {'date': item['date'].strftime('%d %b %Y'), 'avg_price': float(item['avg_price'])}
+        {'date': item['date'].strftime('%d %b %Y'), 'avg_price': round(float(item['avg_price']), 2)}
         for item in daily_avg_qs
     ]
     # Pass all to template
