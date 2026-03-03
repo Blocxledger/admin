@@ -18,7 +18,7 @@ class SetInfo(models.Model):
     lego_price = models.FloatField(null=True, blank=True)
     brickeconomy_description = models.TextField(null=True, blank=True)
     lego_description = models.TextField(null=True, blank=True)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     bricksandminifigsanaheim_desctiption = models.TextField(null=True, blank=True)
     weight = models.CharField(max_length=10485759, null=True, blank=True)
     dim = models.CharField(max_length=10485759, null=True, blank=True)
