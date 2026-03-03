@@ -55,7 +55,7 @@ def _get_set_display(set_info):
             set_info.bricksandminifigsanaheim_name or 'Unknown')
     price = set_info.lego_price
     if not set_info.description:
-        if any(set_info.lego_description,set_info.bricksandminifigsanaheim_desctiption,set_info.brickeconomy_description):
+        if any([set_info.lego_description,set_info.bricksandminifigsanaheim_desctiption,set_info.brickeconomy_description]):
             set_info.description = generate_description(set_info.brickeconomy_description, set_info.bricksandminifigsanaheim_desctiption, set_info.lego_description)
             set_info.save()
     img = Images.objects.filter(set=set_info.set).first()
