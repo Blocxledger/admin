@@ -28,7 +28,7 @@ def generate_description(brickeconomy_desc, bricksandminifigs_desc, lego_desc):
     payload = {
         "model": "deepseek-chat",
         "messages": [
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "You are a helpful assistant. that recieves multiple descriptions and return only new generated description as text not markdown without any extra ai text as you're an api that used in production to generate clean descriptions"},
             {"role": "user", "content": user_prompt}
         ],
         "stream": False
