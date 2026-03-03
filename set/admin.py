@@ -93,7 +93,8 @@ class SetInfoAdmin(admin.ModelAdmin):
             "fields": (
                 "lego_description",
                 "brickeconomy_description",
-                "bricksandminifigsanaheim_desctiption"
+                "bricksandminifigsanaheim_desctiption",
+                "description"
             )
         }),
         ("Links", {
