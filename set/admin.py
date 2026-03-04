@@ -121,7 +121,7 @@ class ImagesAdmin(admin.ModelAdmin):
         "set",
         "image_preview",
     )
-    search_fields = ("set__set_id",)
+    search_fields = ("set__set_id","link")
 
     def image_preview(self, obj):
         return format_html(
