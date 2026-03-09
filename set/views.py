@@ -102,6 +102,8 @@ def ingest_set(request):
                 img.save()
 
         for img in data.get("images", []) + [data.get('image')]:
+            if not img:
+                continue
             img = Images.objects.filter(
                 set=set_obj,
                 link=img
