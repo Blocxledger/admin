@@ -101,16 +101,16 @@ def ingest_set(request):
                 img.link = img.link.replace('thumb', 'large').replace('.jpg', '.png')
                 img.save()
 
-        for img in data.get("images", []):
-            Images.objects.get_or_create(
+        for img in data.get("images", []) + [data.get('image')]:
+            img = Images.objects.filter(
                 set=set_obj,
                 link=img
             )
-        if img := data.get('image'):
-            Images.objects.get_or_create(
-                set=set_obj,
-                link=img
-            )
+            if not img.exists():
+                img = Images.objects.create(
+                    set=set_obj,
+                    link=img
+                )
         # -------------------
         # SELLERS
         # -------------------
