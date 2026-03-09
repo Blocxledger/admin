@@ -181,24 +181,8 @@ def item_detail_view(request, code):
         img.link = img.link.replace('thumb', 'large').replace('.png', '.jpg')
     item['images'] = [img for img in Images.objects.filter(set=set_obj).values_list('link', flat=True) if 'None' not in img ]
     # Fetch sellers
-    qs = Sellers.objects.filter(set=set_obj).order_by('usd_price')
-    unique_sellers = []
-    seen = set()
+    unique_sellers = Sellers.objects.filter(set=set_obj, active=True).order_by('usd_price')
 
-    for seller in qs:
-        key = (
-            seller.name,
-            seller.usd_price,
-            seller.buy_url,
-            seller.source,
-            seller.quantity,
-            seller.condition,
-            seller.complete,
-            seller.country
-        )
-    if key not in seen:
-        unique_sellers.append(seller)
-        seen.add(key)
     # Watchlist info
     in_watchlist = False
     is_favorite = False
