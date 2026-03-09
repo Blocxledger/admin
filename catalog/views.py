@@ -154,7 +154,7 @@ def browse_view(request):
     context = {
         'form': form,
         'page_obj': page_obj,
-        'categories': Theme.objects.filter(parent__isnull=True),
+        'categories': Theme.objects.filter(parent__isnull=True).order_by('name'),
         'items': [_item(s) for s in page_obj],
     }
     return render(request, 'catalog/browse.html', context)
@@ -176,6 +176,9 @@ def item_detail_view(request, code):
     item['set_info'] = set_info
     item['code'] = code
     item['themes'] = set_info.themes.all()
+    images = Images.objects.filter(set=set_obj)
+    for img in images:
+        img.link = img.link.replace('thumb', 'large').replace('.png', '.jpg')
     item['images'] = [img for img in Images.objects.filter(set=set_obj).values_list('link', flat=True) if 'None' not in img ]
     # Fetch sellers
     qs = Sellers.objects.filter(set=set_obj).order_by('usd_price')
