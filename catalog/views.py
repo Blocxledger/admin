@@ -1,3 +1,4 @@
+from collections import defaultdict
 from datetime import timedelta
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -163,43 +164,46 @@ def browse_view(request):
 
 def get_daily_avg_prices(set_obj):
     """
-    Returns daily average USD prices for a given set_obj.
-    Output is a list of dicts with 'date' and 'avg_price',
-    ready to use in JS charts.
+    Calculate daily average USD prices for a given set_obj.
+    Returns a list of dicts: [{'date': '02 Mar 2026', 'avg_price': 219.62}, ...]
     """
-
-    # 1️⃣ Aggregate daily averages
-    daily_avg_qs = (
-        Sellers.objects
-        .filter(set=set_obj, usd_price__isnull=False)
-        .annotate(day=TruncDate("scraped_at"))
-        .values("day")
-        .annotate(avg_price=Avg("usd_price"))
-        .order_by("day")
-    )
-
-    # 2️⃣ Convert to dictionary keyed by day for easy lookup
-    avg_by_day = {item["day"]: round(item["avg_price"], 2) if item["avg_price"] else 0
-                  for item in daily_avg_qs}
-
-    # 3️⃣ Determine date range (first -> last day)
-    if not avg_by_day:
+    # 1️⃣ Fetch sellers with USD prices, ordered by scraped_at
+    sellers_qs = Sellers.objects.filter(set=set_obj, usd_price__isnull=False).order_by('scraped_at')
+    
+    if not sellers_qs.exists():
         return []
 
-    start_date = min(avg_by_day.keys())
-    end_date = max(avg_by_day.keys())
+    # 2️⃣ Group prices by day
+    daily_prices = defaultdict(list)
+    for seller in sellers_qs:
+        day = seller.scraped_at.date().strftime("%d %b %Y")  # convert datetime to date
+        print(day)
+        daily_prices[day].append(seller.usd_price)
 
-    # 4️⃣ Fill missing days with 0
+    # 3️⃣ Calculate daily averages
     daily_avg_data = []
-    current_date = start_date
-    while current_date <= end_date:
+    for day, prices in sorted(daily_prices.items()):
+        avg_price = sum(prices) / len(prices)
         daily_avg_data.append({
-            "date": current_date.strftime("%d %b %Y"),
-            "avg_price": avg_by_day.get(current_date, 0),
+            "date": day,
+            "avg_price": round(avg_price, 2)
+        })
+
+    # 4️⃣ Optional: Fill missing days (continuous chart)
+    start_date = min(daily_prices.keys())
+    end_date = max(daily_prices.keys())
+
+    all_days_data = []
+    current_date = start_date
+    avg_by_day = {day: round(sum(prices)/len(prices), 2) for day, prices in daily_prices.items()}
+    while current_date <= end_date:
+        all_days_data.append({
+            "date": current_date,
+            "avg_price": avg_by_day.get(current_date, 0)
         })
         current_date += timedelta(days=1)
 
-    return daily_avg_data
+    return all_days_data
 
 
 def item_detail_view(request, code):

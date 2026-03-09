@@ -111,7 +111,23 @@ def ingest_set(request):
         ).update(active=False)
 
         for s in data.get("sellers", []):
-            seller, _ =Sellers.objects.get_or_create(
+            seller = Sellers.objects.filter(
+                set=set_obj,
+                name=s.get("seller_name"),
+                description=s.get("seller_description"),
+                condition=s.get("condition"),
+                country=s.get("country"),
+                complete=s.get("complete"),
+                usd_price=s.get("usd_price"),
+                real_price=s.get("real_price"),
+                quantity=s.get("quantity"),
+                buy_url=s.get("buy_url"),
+                source=data.get("source"),
+            ).order_by('-scraped_at')
+            if seller.exists():
+                seller = seller.first()
+            else:
+                seller = Sellers.objects.create(
                 set=set_obj,
                 name=s.get("seller_name"),
                 description=s.get("seller_description"),

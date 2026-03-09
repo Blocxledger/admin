@@ -1,0 +1,1913 @@
+[
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "transaction",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "importPath": "django.contrib.auth.admin",
+        "description": "django.contrib.auth.admin",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.admin",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "AuthenticationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "pre_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "views",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "LogoutView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "Notification",
+        "importPath": "catalog.models",
+        "description": "catalog.models",
+        "isExtraImport": true,
+        "detail": "catalog.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Theme",
+        "importPath": "theme.models",
+        "description": "theme.models",
+        "isExtraImport": true,
+        "detail": "theme.models",
+        "documentation": {}
+    },
+    {
+        "label": "Theme",
+        "importPath": "theme.models",
+        "description": "theme.models",
+        "isExtraImport": true,
+        "detail": "theme.models",
+        "documentation": {}
+    },
+    {
+        "label": "Theme",
+        "importPath": "theme.models",
+        "description": "theme.models",
+        "isExtraImport": true,
+        "detail": "theme.models",
+        "documentation": {}
+    },
+    {
+        "label": "Theme",
+        "importPath": "theme.models",
+        "description": "theme.models",
+        "isExtraImport": true,
+        "detail": "theme.models",
+        "documentation": {}
+    },
+    {
+        "label": "SetInfo",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "SetId",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "SetInfo",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "SetId",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "SetInfo",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "Images",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sellers",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "DailySetAverage",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sellers",
+        "importPath": "set.models",
+        "description": "set.models",
+        "isExtraImport": true,
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Avg",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Avg",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Avg",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "TruncDate",
+        "importPath": "django.db.models.functions",
+        "description": "django.db.models.functions",
+        "isExtraImport": true,
+        "detail": "django.db.models.functions",
+        "documentation": {}
+    },
+    {
+        "label": "TruncDate",
+        "importPath": "django.db.models.functions",
+        "description": "django.db.models.functions",
+        "isExtraImport": true,
+        "detail": "django.db.models.functions",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv;load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "dj_database_url",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dj_database_url",
+        "description": "dj_database_url",
+        "detail": "dj_database_url",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "format_html",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "accounts.migrations.0001_initial",
+        "description": "accounts.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('auth', '0012_alter_user_first_name_max_length'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='UserProfile',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "accounts.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfileInline",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class UserProfileInline(admin.StackedInline):\n    model = UserProfile\n    can_delete = False\nclass UserAdmin(BaseUserAdmin):\n    inlines = [UserProfileInline]\n    list_display = ['username', 'email', 'date_joined']\nadmin.site.unregister(User)\nadmin.site.register(User, UserAdmin)\n@admin.register(UserProfile)\nclass UserProfileAdmin(admin.ModelAdmin):",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class UserAdmin(BaseUserAdmin):\n    inlines = [UserProfileInline]\n    list_display = ['username', 'email', 'date_joined']\nadmin.site.unregister(User)\nadmin.site.register(User, UserAdmin)\n@admin.register(UserProfile)\nclass UserProfileAdmin(admin.ModelAdmin):\n    list_display = ['user', 'notification_frequency', 'created_at']\n    list_filter = ['notification_frequency']",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfileAdmin",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class UserProfileAdmin(admin.ModelAdmin):\n    list_display = ['user', 'notification_frequency', 'created_at']\n    list_filter = ['notification_frequency']",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AccountsConfig",
+        "kind": 6,
+        "importPath": "accounts.apps",
+        "description": "accounts.apps",
+        "peekOfCode": "class AccountsConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'accounts'\n    verbose_name = 'User Accounts'\n    def ready(self):\n        import accounts.signals  # noqa: F401",
+        "detail": "accounts.apps",
+        "documentation": {}
+    },
+    {
+        "label": "CustomAuthenticationForm",
+        "kind": 6,
+        "importPath": "accounts.forms",
+        "description": "accounts.forms",
+        "peekOfCode": "class CustomAuthenticationForm(AuthenticationForm):\n    \"\"\"Login form with styled inputs.\"\"\"\n    username = forms.CharField(widget=forms.TextInput(attrs={\n        'class': INPUT_CLASS,\n        'placeholder': 'Username',\n        'autocomplete': 'username',\n    }))\n    password = forms.CharField(widget=forms.PasswordInput(attrs={\n        'class': INPUT_CLASS,\n        'placeholder': 'Password',",
+        "detail": "accounts.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUserCreationForm",
+        "kind": 6,
+        "importPath": "accounts.forms",
+        "description": "accounts.forms",
+        "peekOfCode": "class CustomUserCreationForm(UserCreationForm):\n    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': INPUT_CLASS, 'placeholder': 'Email', 'autocomplete': 'email'}))\n    class Meta:\n        model = User\n        fields = ('username', 'email', 'password1', 'password2')\n        widgets = {\n            'username': forms.TextInput(attrs={'class': INPUT_CLASS, 'placeholder': 'Username', 'autocomplete': 'username'}),\n            'password1': forms.PasswordInput(attrs={'class': INPUT_CLASS, 'placeholder': 'Password', 'autocomplete': 'new-password'}),\n            'password2': forms.PasswordInput(attrs={'class': INPUT_CLASS, 'placeholder': 'Confirm password', 'autocomplete': 'new-password'}),\n        }",
+        "detail": "accounts.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileUpdateForm",
+        "kind": 6,
+        "importPath": "accounts.forms",
+        "description": "accounts.forms",
+        "peekOfCode": "class ProfileUpdateForm(forms.ModelForm):\n    class Meta:\n        model = UserProfile\n        fields = ['bio', 'notification_frequency']\n        widgets = {\n            'bio': forms.Textarea(attrs={\n                'class': INPUT_CLASS,\n                'placeholder': 'Tell us about yourself...',\n                'rows': 4,\n            }),",
+        "detail": "accounts.forms",
+        "documentation": {}
+    },
+    {
+        "label": "UserUpdateForm",
+        "kind": 6,
+        "importPath": "accounts.forms",
+        "description": "accounts.forms",
+        "peekOfCode": "class UserUpdateForm(forms.ModelForm):\n    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': INPUT_CLASS}))\n    class Meta:\n        model = User\n        fields = ['username', 'email', 'first_name', 'last_name']\n        widgets = {\n            'username': forms.TextInput(attrs={'class': INPUT_CLASS}),\n            'first_name': forms.TextInput(attrs={'class': INPUT_CLASS}),\n            'last_name': forms.TextInput(attrs={'class': INPUT_CLASS}),\n        }",
+        "detail": "accounts.forms",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationSettingsForm",
+        "kind": 6,
+        "importPath": "accounts.forms",
+        "description": "accounts.forms",
+        "peekOfCode": "class NotificationSettingsForm(forms.ModelForm):\n    class Meta:\n        model = UserProfile\n        fields = ['notification_frequency']\n        widgets = {'notification_frequency': forms.RadioSelect()}",
+        "detail": "accounts.forms",
+        "documentation": {}
+    },
+    {
+        "label": "INPUT_CLASS",
+        "kind": 5,
+        "importPath": "accounts.forms",
+        "description": "accounts.forms",
+        "peekOfCode": "INPUT_CLASS = 'w-full rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brick-500 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-500'\nclass CustomAuthenticationForm(AuthenticationForm):\n    \"\"\"Login form with styled inputs.\"\"\"\n    username = forms.CharField(widget=forms.TextInput(attrs={\n        'class': INPUT_CLASS,\n        'placeholder': 'Username',\n        'autocomplete': 'username',\n    }))\n    password = forms.CharField(widget=forms.PasswordInput(attrs={\n        'class': INPUT_CLASS,",
+        "detail": "accounts.forms",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfile",
+        "kind": 6,
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "peekOfCode": "class UserProfile(models.Model):\n    FREQUENCY_CHOICES = [\n        ('daily', 'Daily'),\n        ('weekly', 'Weekly'),\n        ('monthly', 'Monthly'),\n        ('none', 'None'),\n    ]\n    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')\n    bio = models.TextField(blank=True, max_length=500)\n    notification_frequency = models.CharField(",
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "create_user_profile",
+        "kind": 2,
+        "importPath": "accounts.signals",
+        "description": "accounts.signals",
+        "peekOfCode": "def create_user_profile(sender, instance, created, **kwargs):\n    if created:\n        UserProfile.objects.get_or_create(user=instance)",
+        "detail": "accounts.signals",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "accounts.urls",
+        "description": "accounts.urls",
+        "peekOfCode": "app_name = 'accounts'\nurlpatterns = [\n    path('signup/', views.SignUpView.as_view(), name='signup'),\n    path('login/', views.CustomLoginView.as_view(), name='login'),\n    path('logout/', views.CustomLogoutView.as_view(), name='logout'),\n    path('profile/', views.profile_view, name='profile'),\n    path('profile/edit/', views.profile_edit_view, name='profile_edit'),\n    path('profile/notifications/', views.notification_settings_view, name='notification_settings'),\n    path('password-reset/', auth_views.PasswordResetView.as_view(\n        template_name='accounts/password_reset.html',",
+        "detail": "accounts.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "accounts.urls",
+        "description": "accounts.urls",
+        "peekOfCode": "urlpatterns = [\n    path('signup/', views.SignUpView.as_view(), name='signup'),\n    path('login/', views.CustomLoginView.as_view(), name='login'),\n    path('logout/', views.CustomLogoutView.as_view(), name='logout'),\n    path('profile/', views.profile_view, name='profile'),\n    path('profile/edit/', views.profile_edit_view, name='profile_edit'),\n    path('profile/notifications/', views.notification_settings_view, name='notification_settings'),\n    path('password-reset/', auth_views.PasswordResetView.as_view(\n        template_name='accounts/password_reset.html',\n        email_template_name='accounts/password_reset_email.html',",
+        "detail": "accounts.urls",
+        "documentation": {}
+    },
+    {
+        "label": "SignUpView",
+        "kind": 6,
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "peekOfCode": "class SignUpView(CreateView):\n    form_class = CustomUserCreationForm\n    success_url = reverse_lazy('catalog:home')\n    template_name = 'accounts/signup.html'\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        messages.success(self.request, 'Account created successfully!')\n        return response\nclass CustomLoginView(LoginView):",
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "CustomLoginView",
+        "kind": 6,
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "peekOfCode": "class CustomLoginView(LoginView):\n    form_class = CustomAuthenticationForm\n    template_name = 'accounts/login.html'\n    redirect_authenticated_user = True\nclass CustomLogoutView(LogoutView):\n    next_page = reverse_lazy('catalog:home')\n    def dispatch(self, request, *args, **kwargs):\n        messages.info(request, 'You have been logged out.')\n        return super().dispatch(request, *args, **kwargs)\ndef profile_view(request):",
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "CustomLogoutView",
+        "kind": 6,
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "peekOfCode": "class CustomLogoutView(LogoutView):\n    next_page = reverse_lazy('catalog:home')\n    def dispatch(self, request, *args, **kwargs):\n        messages.info(request, 'You have been logged out.')\n        return super().dispatch(request, *args, **kwargs)\ndef profile_view(request):\n    if not request.user.is_authenticated:\n        return redirect('accounts:login')\n    return render(request, 'accounts/profile.html', {'user': request.user})\ndef profile_edit_view(request):",
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "profile_view",
+        "kind": 2,
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "peekOfCode": "def profile_view(request):\n    if not request.user.is_authenticated:\n        return redirect('accounts:login')\n    return render(request, 'accounts/profile.html', {'user': request.user})\ndef profile_edit_view(request):\n    if not request.user.is_authenticated:\n        return redirect('accounts:login')\n    user_form = UserUpdateForm(instance=request.user)\n    profile_form = ProfileUpdateForm(instance=request.user.profile)\n    if request.method == 'POST':",
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "profile_edit_view",
+        "kind": 2,
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "peekOfCode": "def profile_edit_view(request):\n    if not request.user.is_authenticated:\n        return redirect('accounts:login')\n    user_form = UserUpdateForm(instance=request.user)\n    profile_form = ProfileUpdateForm(instance=request.user.profile)\n    if request.method == 'POST':\n        user_form = UserUpdateForm(request.POST, instance=request.user)\n        profile_form = ProfileUpdateForm(request.POST, instance=request.user.profile)\n        if user_form.is_valid() and profile_form.is_valid():\n            user_form.save()",
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "notification_settings_view",
+        "kind": 2,
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "peekOfCode": "def notification_settings_view(request):\n    if not request.user.is_authenticated:\n        return redirect('accounts:login')\n    form = NotificationSettingsForm(instance=request.user.profile)\n    if request.method == 'POST':\n        form = NotificationSettingsForm(request.POST, instance=request.user.profile)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Notification settings updated.')\n            return redirect('accounts:notification_settings')",
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "Command",
+        "kind": 6,
+        "importPath": "catalog.management.commands.process_notifications",
+        "description": "catalog.management.commands.process_notifications",
+        "peekOfCode": "class Command(BaseCommand):\n    help = 'Process notifications (placeholder for batch/digest logic)'\n    def add_arguments(self, parser):\n        parser.add_argument('--dry-run', action='store_true')\n    def handle(self, *args, **options):\n        for profile in UserProfile.objects.filter(notification_frequency='weekly'):\n            count = Notification.objects.filter(user=profile.user, is_read=False).count()\n            if count and not options['dry_run']:\n                self.stdout.write(f\"User {profile.user.username}: {count} unread notifications\")\n        self.stdout.write(self.style.SUCCESS('Done'))",
+        "detail": "catalog.management.commands.process_notifications",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "catalog.migrations.0001_initial",
+        "description": "catalog.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('set', '0012_setinfo_view_count'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Watchlist',\n            fields=[",
+        "detail": "catalog.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "WatchlistAdmin",
+        "kind": 6,
+        "importPath": "catalog.admin",
+        "description": "catalog.admin",
+        "peekOfCode": "class WatchlistAdmin(admin.ModelAdmin):\n    list_display = ['user', 'set_obj', 'is_favorite', 'created_at']\n    list_filter = ['is_favorite', 'created_at']\n    search_fields = ['user__username', 'set_obj__set_id']\n    raw_id_fields = ['user', 'set_obj']\n@admin.register(Notification)\nclass NotificationAdmin(admin.ModelAdmin):\n    list_display = ['user', 'set_obj', 'notification_type', 'is_read', 'created_at']\n    list_filter = ['notification_type', 'is_read', 'created_at']\n    raw_id_fields = ['user', 'set_obj']",
+        "detail": "catalog.admin",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationAdmin",
+        "kind": 6,
+        "importPath": "catalog.admin",
+        "description": "catalog.admin",
+        "peekOfCode": "class NotificationAdmin(admin.ModelAdmin):\n    list_display = ['user', 'set_obj', 'notification_type', 'is_read', 'created_at']\n    list_filter = ['notification_type', 'is_read', 'created_at']\n    raw_id_fields = ['user', 'set_obj']",
+        "detail": "catalog.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CatalogConfig",
+        "kind": 6,
+        "importPath": "catalog.apps",
+        "description": "catalog.apps",
+        "peekOfCode": "class CatalogConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'catalog'\n    verbose_name = 'Item Catalog'\n    def ready(self):\n        import catalog.signals  # noqa: F401",
+        "detail": "catalog.apps",
+        "documentation": {}
+    },
+    {
+        "label": "ItemSearchForm",
+        "kind": 6,
+        "importPath": "catalog.forms",
+        "description": "catalog.forms",
+        "peekOfCode": "class ItemSearchForm(forms.Form):\n    code = forms.CharField(\n        max_length=100,\n        required=False,\n        widget=forms.TextInput(attrs={\n            'placeholder': 'Search by set code...',\n            'autocomplete': 'off',\n            'class': 'search-input',\n        })\n    )",
+        "detail": "catalog.forms",
+        "documentation": {}
+    },
+    {
+        "label": "BrowseFilterForm",
+        "kind": 6,
+        "importPath": "catalog.forms",
+        "description": "catalog.forms",
+        "peekOfCode": "class BrowseFilterForm(forms.Form):\n    category = forms.ModelChoiceField(\n        queryset=Theme.objects.none(),\n        required=False,\n        empty_label='All Themes',\n        widget=forms.Select(attrs={'class': 'w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100'}),\n    )\n    min_price = forms.DecimalField(required=False, min_value=0, widget=forms.NumberInput(attrs={'class': 'w-full rounded-lg px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100'}))\n    max_price = forms.DecimalField(required=False, min_value=0, widget=forms.NumberInput(attrs={'class': 'w-full rounded-lg px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100'}))\n    sort_by = forms.ChoiceField(",
+        "detail": "catalog.forms",
+        "documentation": {}
+    },
+    {
+        "label": "Watchlist",
+        "kind": 6,
+        "importPath": "catalog.models",
+        "description": "catalog.models",
+        "peekOfCode": "class Watchlist(models.Model):\n    \"\"\"User's watchlist - sets they're tracking for notifications.\"\"\"\n    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='watchlist')\n    set_obj = models.ForeignKey(SetId, on_delete=models.CASCADE, related_name='watchers')\n    is_favorite = models.BooleanField(default=False)\n    created_at = models.DateTimeField(auto_now_add=True)\n    class Meta:\n        unique_together = ['user', 'set_obj']\n        ordering = ['-created_at']\n    def __str__(self):",
+        "detail": "catalog.models",
+        "documentation": {}
+    },
+    {
+        "label": "Notification",
+        "kind": 6,
+        "importPath": "catalog.models",
+        "description": "catalog.models",
+        "peekOfCode": "class Notification(models.Model):\n    \"\"\"In-app notifications for users.\"\"\"\n    NOTIFICATION_TYPES = [\n        ('price_change', 'Price Change'),\n        ('item_update', 'Item Update'),\n        ('new_item', 'New Item in Watchlist'),\n    ]\n    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')\n    set_obj = models.ForeignKey(\n        SetId,",
+        "detail": "catalog.models",
+        "documentation": {}
+    },
+    {
+        "label": "store_old_price",
+        "kind": 2,
+        "importPath": "catalog.signals",
+        "description": "catalog.signals",
+        "peekOfCode": "def store_old_price(sender, instance, **kwargs):\n    if instance.pk:\n        try:\n            old = SetInfo.objects.get(pk=instance.pk)\n            _old_prices[instance.pk] = old.lego_price\n        except SetInfo.DoesNotExist:\n            pass\n@receiver(post_save, sender=SetInfo)\ndef notify_on_price_change(sender, instance, created, **kwargs):\n    \"\"\"Notify watchers when lego_price changes.\"\"\"",
+        "detail": "catalog.signals",
+        "documentation": {}
+    },
+    {
+        "label": "notify_on_price_change",
+        "kind": 2,
+        "importPath": "catalog.signals",
+        "description": "catalog.signals",
+        "peekOfCode": "def notify_on_price_change(sender, instance, created, **kwargs):\n    \"\"\"Notify watchers when lego_price changes.\"\"\"\n    if created or instance.lego_price is None:\n        if instance.pk in _old_prices:\n            del _old_prices[instance.pk]\n        return\n    old_price = _old_prices.pop(instance.pk, None)\n    if old_price is None or float(old_price) == float(instance.lego_price):\n        return\n    watchers = Watchlist.objects.filter(set_obj=instance.set).select_related('user')",
+        "detail": "catalog.signals",
+        "documentation": {}
+    },
+    {
+        "label": "_old_prices",
+        "kind": 5,
+        "importPath": "catalog.signals",
+        "description": "catalog.signals",
+        "peekOfCode": "_old_prices = {}\n@receiver(pre_save, sender=SetInfo)\ndef store_old_price(sender, instance, **kwargs):\n    if instance.pk:\n        try:\n            old = SetInfo.objects.get(pk=instance.pk)\n            _old_prices[instance.pk] = old.lego_price\n        except SetInfo.DoesNotExist:\n            pass\n@receiver(post_save, sender=SetInfo)",
+        "detail": "catalog.signals",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "catalog.urls",
+        "description": "catalog.urls",
+        "peekOfCode": "app_name = 'catalog'\nurlpatterns = [\n    path('', views.home_view, name='home'),\n    path('search/', views.search_view, name='search'),\n    path('browse/', views.browse_view, name='browse'),\n    path('item/<str:code>/', views.item_detail_view, name='item_detail'),\n    path('autocomplete/', views.autocomplete_view, name='autocomplete'),\n    path('watchlist/', views.watchlist_view, name='watchlist'),\n    path('watchlist/add/<str:code>/', views.watchlist_add, name='watchlist_add'),\n    path('watchlist/remove/<str:code>/', views.watchlist_remove, name='watchlist_remove'),",
+        "detail": "catalog.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "catalog.urls",
+        "description": "catalog.urls",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home_view, name='home'),\n    path('search/', views.search_view, name='search'),\n    path('browse/', views.browse_view, name='browse'),\n    path('item/<str:code>/', views.item_detail_view, name='item_detail'),\n    path('autocomplete/', views.autocomplete_view, name='autocomplete'),\n    path('watchlist/', views.watchlist_view, name='watchlist'),\n    path('watchlist/add/<str:code>/', views.watchlist_add, name='watchlist_add'),\n    path('watchlist/remove/<str:code>/', views.watchlist_remove, name='watchlist_remove'),\n    path('watchlist/toggle-favorite/<str:code>/', views.watchlist_toggle_favorite, name='watchlist_toggle_favorite'),",
+        "detail": "catalog.urls",
+        "documentation": {}
+    },
+    {
+        "label": "generate_description",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def generate_description(brickeconomy_desc, bricksandminifigs_desc, lego_desc):\n    \"\"\"\n    Generate a new description using DeepSeek chat completions API\n    from the provided descriptions (any of them can be empty).\n    \"\"\"\n    # Combine non-empty descriptions\n    combined_texts = [desc for desc in [brickeconomy_desc, bricksandminifigs_desc, lego_desc] if desc]\n    # If all are empty, send a placeholder prompt\n    user_prompt = \" \".join(combined_texts) if combined_texts else \"Generate a creative LEGO set description.\"\n    api_url = \"https://api.deepseek.com/chat/completions\"",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "home_view",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def home_view(request):\n    \"\"\"Home page with trending and recent sets.\"\"\"\n    set_infos = SetInfo.objects.select_related('set').prefetch_related('themes')\n    trending = set_infos.order_by('-view_count')[:8]\n    recent = set_infos.order_by('-id')[:8]\n    themes = Theme.objects.filter(parent__isnull=True)[:8]\n    def _item(set_info):\n        d = _get_set_display(set_info)\n        d['set_info'] = set_info\n        d['code'] = set_info.set.set_id",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "search_view",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def search_view(request):\n    \"\"\"Search sets by code or name.\"\"\"\n    form = ItemSearchForm(request.GET or None)\n    items = []\n    if form.is_valid() and form.cleaned_data.get('code'):\n        q = form.cleaned_data['code'].strip()\n        set_infos = SetInfo.objects.filter(\n            Q(set__set_id__icontains=q) |\n            Q(bricklink_name__icontains=q) |\n            Q(lego_name__icontains=q) |",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "browse_view",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def browse_view(request):\n    \"\"\"Browse sets with filters and pagination.\"\"\"\n    form = BrowseFilterForm(request.GET or None)\n    set_infos = SetInfo.objects.select_related('set').prefetch_related('themes')\n    if form.is_valid():\n        if form.cleaned_data.get('category'):\n            theme_ids = [form.cleaned_data['category'].id]\n            theme_ids.extend(Theme.objects.filter(parent=form.cleaned_data['category']).values_list('id', flat=True))\n            set_infos = set_infos.filter(themes__id__in=theme_ids).distinct()\n        if form.cleaned_data.get('min_price') is not None:",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_daily_avg_prices",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def get_daily_avg_prices(set_obj):\n    \"\"\"\n    Calculate daily average USD prices for a given set_obj.\n    Returns a list of dicts: [{'date': '02 Mar 2026', 'avg_price': 219.62}, ...]\n    \"\"\"\n    # 1️⃣ Fetch sellers with USD prices, ordered by scraped_at\n    sellers_qs = Sellers.objects.filter(set=set_obj, usd_price__isnull=False).order_by('scraped_at')\n    if not sellers_qs.exists():\n        return []\n    # 2️⃣ Group prices by day",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "item_detail_view",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def item_detail_view(request, code):\n    \"\"\"Set detail page.\"\"\"\n    set_obj = get_object_or_404(SetId, set_id=code)\n    set_info = SetInfo.objects.filter(set=set_obj).select_related('set').prefetch_related('themes').first()\n    if not set_info:\n        return render(request, 'catalog/item_detail.html', {'item': None, 'code': code})\n    # Increment view count\n    set_info.view_count += 1\n    set_info.save(update_fields=['view_count'])\n    # Prepare item dict",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "watchlist_view",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def watchlist_view(request):\n    \"\"\"User's watchlist and favorites.\"\"\"\n    watchlist = Watchlist.objects.filter(user=request.user).select_related('set_obj')\n    favorites = [w for w in watchlist if w.is_favorite]\n    watching = [w for w in watchlist if not w.is_favorite]\n    def _wrap(w):\n        si = SetInfo.objects.filter(set=w.set_obj).prefetch_related('themes').first()\n        if not si:\n            return None\n        d = _get_set_display(si)",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "watchlist_add",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def watchlist_add(request, code):\n    set_obj = get_object_or_404(SetId, set_id=code)\n    from django.urls import reverse\n    Watchlist.objects.get_or_create(user=request.user, set_obj=set_obj, defaults={'is_favorite': False})\n    messages.success(request, f'Added {code} to your watchlist.')\n    return redirect(request.META.get('HTTP_REFERER') or reverse('catalog:item_detail', kwargs={'code': code}))\n@login_required\ndef watchlist_remove(request, code):\n    set_obj = get_object_or_404(SetId, set_id=code)\n    Watchlist.objects.filter(user=request.user, set_obj=set_obj).delete()",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "watchlist_remove",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def watchlist_remove(request, code):\n    set_obj = get_object_or_404(SetId, set_id=code)\n    Watchlist.objects.filter(user=request.user, set_obj=set_obj).delete()\n    messages.success(request, f'Removed {code} from your watchlist.')\n    from django.urls import reverse\n    return redirect(request.META.get('HTTP_REFERER') or reverse('catalog:watchlist'))\n@login_required\ndef watchlist_toggle_favorite(request, code):\n    set_obj = get_object_or_404(SetId, set_id=code)\n    w, created = Watchlist.objects.get_or_create(user=request.user, set_obj=set_obj)",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "watchlist_toggle_favorite",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def watchlist_toggle_favorite(request, code):\n    set_obj = get_object_or_404(SetId, set_id=code)\n    w, created = Watchlist.objects.get_or_create(user=request.user, set_obj=set_obj)\n    w.is_favorite = not w.is_favorite\n    w.save()\n    messages.success(request, f'Marked {code} as {\"favorite\" if w.is_favorite else \"watchlist\"}.')\n    from django.urls import reverse\n    return redirect(request.META.get('HTTP_REFERER') or reverse('catalog:watchlist'))\n@login_required\ndef notifications_view(request):",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "notifications_view",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def notifications_view(request):\n    notifications = Notification.objects.filter(user=request.user).select_related('set_obj')[:50]\n    return render(request, 'catalog/notifications.html', {'notifications': notifications})\n@login_required\ndef notification_mark_read(request, pk):\n    n = get_object_or_404(Notification, pk=pk, user=request.user)\n    n.is_read = True\n    n.save()\n    return redirect('catalog:notifications')\n@login_required",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "notification_mark_read",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def notification_mark_read(request, pk):\n    n = get_object_or_404(Notification, pk=pk, user=request.user)\n    n.is_read = True\n    n.save()\n    return redirect('catalog:notifications')\n@login_required\ndef notification_mark_all_read(request):\n    Notification.objects.filter(user=request.user).update(is_read=True)\n    messages.success(request, 'All notifications marked as read.')\n    return redirect('catalog:notifications')",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "notification_mark_all_read",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def notification_mark_all_read(request):\n    Notification.objects.filter(user=request.user).update(is_read=True)\n    messages.success(request, 'All notifications marked as read.')\n    return redirect('catalog:notifications')\ndef autocomplete_view(request):\n    q = request.GET.get('q', '')[:50]\n    set_infos = SetInfo.objects.filter(\n        Q(set__set_id__icontains=q) | Q(bricklink_name__icontains=q) |\n        Q(lego_name__icontains=q) | Q(brickeconomy_name__icontains=q)\n    ).select_related('set')[:10] if q else []",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "autocomplete_view",
+        "kind": 2,
+        "importPath": "catalog.views",
+        "description": "catalog.views",
+        "peekOfCode": "def autocomplete_view(request):\n    q = request.GET.get('q', '')[:50]\n    set_infos = SetInfo.objects.filter(\n        Q(set__set_id__icontains=q) | Q(bricklink_name__icontains=q) |\n        Q(lego_name__icontains=q) | Q(brickeconomy_name__icontains=q)\n    ).select_related('set')[:10] if q else []\n    items = [{'code': s.set.set_id, 'name': s.bricklink_name or s.lego_name, 'price': s.lego_price} for s in set_infos]\n    return render(request, 'components/autocomplete_results.html', {'items': items})",
+        "detail": "catalog.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "core.asgi",
+        "description": "core.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-)f7$@s@_z&a6grh#t%*0%4iq&aw&9z0yv_^ehub-zqltx#s=b5'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['lego1.up.railway.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-)f7$@s@_z&a6grh#t%*0%4iq&aw&9z0yv_^ehub-zqltx#s=b5'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['lego1.up.railway.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['lego1.up.railway.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "ALLOWED_HOSTS = ['lego1.up.railway.app', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'accounts',",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'accounts',\n    'catalog',\n    'set',",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_TRUSTED_ORIGINS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\n    \"https://*.up.railway.app\",\n]\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'core.urls'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "ROOT_URLCONF = 'core.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates'],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates'],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',\n                'django.contrib.messages.context_processors.messages',",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'core.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\nimport os\nimport dj_database_url\nDATABASES = {\n    \"default\": dj_database_url.config(\n        default=os.environ.get(\"DB_URL\"),\n        conn_max_age=600,\n        ssl_require=True,",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "DATABASES = {\n    \"default\": dj_database_url.config(\n        default=os.environ.get(\"DB_URL\"),\n        conn_max_age=600,\n        ssl_require=True,\n    ),\n}\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nLOGIN_URL = 'accounts:login'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'catalog:home'\nLOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'catalog:home'\nLOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "STATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'catalog:home'\nLOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / 'staticfiles'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'catalog:home'\nLOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_BACKEND",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'catalog:home'\nLOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_URL",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "LOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'catalog:home'\nLOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "LOGIN_REDIRECT_URL = 'catalog:home'\nLOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGOUT_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "LOGOUT_REDIRECT_URL = 'catalog:home'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "core.urls",
+        "description": "core.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('accounts/', include('accounts.urls')),\n    path('', include('catalog.urls')),\n    path('api/', include('set.urls')),\n]",
+        "detail": "core.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "core.wsgi",
+        "description": "core.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "set.migrations.0001_initial",
+        "description": "set.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('theme', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='SetId',\n            fields=[\n                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "set.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "set.migrations.0012_setinfo_view_count",
+        "description": "set.migrations.0012_setinfo_view_count",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('set', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='setinfo',\n            name='view_count',\n            field=models.PositiveIntegerField(default=0),\n        ),",
+        "detail": "set.migrations.0012_setinfo_view_count",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "set.migrations.0013_sellers_scraped_at_setinfo_scraped_at",
+        "description": "set.migrations.0013_sellers_scraped_at_setinfo_scraped_at",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('set', '0012_setinfo_view_count'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='sellers',\n            name='scraped_at',\n            field=models.DateTimeField(auto_created=True, default=datetime.datetime(2026, 2, 8, 3, 8, 3, 232162, tzinfo=datetime.timezone.utc)),\n            preserve_default=False,",
+        "detail": "set.migrations.0013_sellers_scraped_at_setinfo_scraped_at",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "set.migrations.0014_images_content_sellers_active",
+        "description": "set.migrations.0014_images_content_sellers_active",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('set', '0013_sellers_scraped_at_setinfo_scraped_at'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='images',\n            name='content',\n            field=models.TextField(default='s'),\n            preserve_default=False,",
+        "detail": "set.migrations.0014_images_content_sellers_active",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "set.migrations.0015_remove_images_content",
+        "description": "set.migrations.0015_remove_images_content",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('set', '0014_images_content_sellers_active'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='images',\n            name='content',\n        ),\n    ]",
+        "detail": "set.migrations.0015_remove_images_content",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "set.migrations.0016_alter_sellers_scraped_at",
+        "description": "set.migrations.0016_alter_sellers_scraped_at",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('set', '0015_remove_images_content'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='sellers',\n            name='scraped_at',\n            field=models.DateTimeField(auto_now_add=True),\n        ),",
+        "detail": "set.migrations.0016_alter_sellers_scraped_at",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "set.migrations.0017_setinfo_description_alter_setinfo_scraped_at",
+        "description": "set.migrations.0017_setinfo_description_alter_setinfo_scraped_at",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('set', '0016_alter_sellers_scraped_at'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='setinfo',\n            name='description',\n            field=models.TextField(null=True),\n        ),",
+        "detail": "set.migrations.0017_setinfo_description_alter_setinfo_scraped_at",
+        "documentation": {}
+    },
+    {
+        "label": "ThemeAdmin",
+        "kind": 6,
+        "importPath": "set.admin",
+        "description": "set.admin",
+        "peekOfCode": "class ThemeAdmin(admin.ModelAdmin):\n    list_display = (\n        \"name\",\n        \"parent\",\n        \"source\",\n    )\n    list_filter = (\"source\",)\n    search_fields = (\"name\",)\n    ordering = (\"parent__name\", \"name\")\nclass ImagesInline(admin.TabularInline):",
+        "detail": "set.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ImagesInline",
+        "kind": 6,
+        "importPath": "set.admin",
+        "description": "set.admin",
+        "peekOfCode": "class ImagesInline(admin.TabularInline):\n    model = Images\n    extra = 0\nclass SellersInline(admin.TabularInline):\n    model = Sellers\n    extra = 0\n    readonly_fields = (\"source\",)\n@admin.register(SetId)\nclass SetIdAdmin(admin.ModelAdmin):\n    list_display = (\"set_id\",)",
+        "detail": "set.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SellersInline",
+        "kind": 6,
+        "importPath": "set.admin",
+        "description": "set.admin",
+        "peekOfCode": "class SellersInline(admin.TabularInline):\n    model = Sellers\n    extra = 0\n    readonly_fields = (\"source\",)\n@admin.register(SetId)\nclass SetIdAdmin(admin.ModelAdmin):\n    list_display = (\"set_id\",)\n    search_fields = (\"set_id\",)\n@admin.register(SetInfo)\nclass SetInfoAdmin(admin.ModelAdmin):",
+        "detail": "set.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SetIdAdmin",
+        "kind": 6,
+        "importPath": "set.admin",
+        "description": "set.admin",
+        "peekOfCode": "class SetIdAdmin(admin.ModelAdmin):\n    list_display = (\"set_id\",)\n    search_fields = (\"set_id\",)\n@admin.register(SetInfo)\nclass SetInfoAdmin(admin.ModelAdmin):\n    list_display = (\n        \"display_name\",\n        \"set\",\n        \"year\",\n        \"parts\",",
+        "detail": "set.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SetInfoAdmin",
+        "kind": 6,
+        "importPath": "set.admin",
+        "description": "set.admin",
+        "peekOfCode": "class SetInfoAdmin(admin.ModelAdmin):\n    list_display = (\n        \"display_name\",\n        \"set\",\n        \"year\",\n        \"parts\",\n        \"lego_price\",\n        \"view_count\",\n        \"source\",\n    )",
+        "detail": "set.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ImagesAdmin",
+        "kind": 6,
+        "importPath": "set.admin",
+        "description": "set.admin",
+        "peekOfCode": "class ImagesAdmin(admin.ModelAdmin):\n    list_display = (\n        \"set\",\n        \"image_preview\",\n    )\n    search_fields = (\"set__set_id\",\"link\")\n    def image_preview(self, obj):\n        return format_html(\n            '<img src=\"{}\" style=\"height:80px;\" />',\n            obj.link",
+        "detail": "set.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SellersAdmin",
+        "kind": 6,
+        "importPath": "set.admin",
+        "description": "set.admin",
+        "peekOfCode": "class SellersAdmin(admin.ModelAdmin):\n    list_display = (\n        \"set\",\n        \"source\",\n        \"usd_price\",\n        \"condition\",\n        \"country\",\n        \"quantity\",\n    )\n    list_filter = (\"source\", \"country\", \"condition\")",
+        "detail": "set.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SetConfig",
+        "kind": 6,
+        "importPath": "set.apps",
+        "description": "set.apps",
+        "peekOfCode": "class SetConfig(AppConfig):\n    name = 'set'",
+        "detail": "set.apps",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_daily_averages",
+        "kind": 2,
+        "importPath": "set.avg_calc",
+        "description": "set.avg_calc",
+        "peekOfCode": "def calculate_daily_averages():\n    now = timezone.now()\n    start = now.replace(hour=0, minute=0, second=0, microsecond=0)\n    end = start + timedelta(days=1)\n    qs = (\n        Sellers.objects\n        .filter(\n            scraped_at__gte=start,\n            scraped_at__lt=end,\n            usd_price__isnull=False",
+        "detail": "set.avg_calc",
+        "documentation": {}
+    },
+    {
+        "label": "SetId",
+        "kind": 6,
+        "importPath": "set.models",
+        "description": "set.models",
+        "peekOfCode": "class SetId(models.Model):\n    set_id = models.CharField(max_length=100,  db_index=True)\n    def __str__(self):\n        return str(self.set_id)\nclass SetInfo(models.Model):\n    bricklink_name = models.CharField(max_length=10485759, null=True, blank=True)\n    lego_name = models.CharField(max_length=10485759, null=True, blank=True)\n    brickeconomy_name = models.CharField(max_length=10485759, null=True, blank=True)\n    bricksandminifigsanaheim_name = models.CharField(max_length=10485759, null=True, blank=True)\n    set = models.ForeignKey(SetId, on_delete=models.CASCADE)",
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "SetInfo",
+        "kind": 6,
+        "importPath": "set.models",
+        "description": "set.models",
+        "peekOfCode": "class SetInfo(models.Model):\n    bricklink_name = models.CharField(max_length=10485759, null=True, blank=True)\n    lego_name = models.CharField(max_length=10485759, null=True, blank=True)\n    brickeconomy_name = models.CharField(max_length=10485759, null=True, blank=True)\n    bricksandminifigsanaheim_name = models.CharField(max_length=10485759, null=True, blank=True)\n    set = models.ForeignKey(SetId, on_delete=models.CASCADE)\n    year = models.IntegerField(null=True, blank=True)\n    lego_price = models.FloatField(null=True, blank=True)\n    brickeconomy_description = models.TextField(null=True, blank=True)\n    lego_description = models.TextField(null=True, blank=True)",
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sellers",
+        "kind": 6,
+        "importPath": "set.models",
+        "description": "set.models",
+        "peekOfCode": "class Sellers(models.Model):\n    SOURCES = [\n        ('brickLink','brickLink'),\n        ('brickEconomy','brickEconomy'),\n    ]\n    set = models.ForeignKey(SetId, on_delete=models.CASCADE)\n    name = models.CharField(max_length=10485759, null=True, blank=True)\n    description = models.TextField(null=True, blank=True)\n    condition = models.CharField(max_length=10485759, null=True, blank=True)\n    country = models.CharField(max_length=10485759, null=True, blank=True)",
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "Images",
+        "kind": 6,
+        "importPath": "set.models",
+        "description": "set.models",
+        "peekOfCode": "class Images(models.Model):\n    set = models.ForeignKey(SetId, on_delete=models.CASCADE)\n    link = models.URLField(max_length=10485759)\n    def __str__(self):\n        return str(self.link)\n#class DailySetAverage(models.Model):\n#    set = models.ForeignKey(SetId, on_delete=models.CASCADE)\n#    date = models.DateField(db_index=True)\n#    average_price = models.FloatField()\n#    sellers_count = models.IntegerField()",
+        "detail": "set.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "set.urls",
+        "description": "set.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"ingest-set/\", ingest_set),\n]",
+        "detail": "set.urls",
+        "documentation": {}
+    },
+    {
+        "label": "ingest_set",
+        "kind": 2,
+        "importPath": "set.views",
+        "description": "set.views",
+        "peekOfCode": "def ingest_set(request):\n    if request.method != \"POST\":\n        return JsonResponse({\"error\": \"POST only\"}, status=405)\n    try:\n        data = json.loads(request.body)\n    except Exception:\n        return JsonResponse({\"error\": \"Invalid JSON\"}, status=400)\n    with transaction.atomic():\n        # -------------------\n        # SET ID",
+        "detail": "set.views",
+        "documentation": {}
+    },
+    {
+        "label": "avg_prices_per_date",
+        "kind": 2,
+        "importPath": "set.views",
+        "description": "set.views",
+        "peekOfCode": "def avg_prices_per_date(request, set_id):\n    \"\"\"\n    Returns JSON with average USD price per day for a given set\n    \"\"\"\n    # Filter active sellers with valid price for the given set\n    qs = (\n        Sellers.objects\n        .filter(set_id=set_id, active=True, usd_price__isnull=False)\n        # Truncate datetime to date\n        .annotate(date=TruncDate('scraped_at'))",
+        "detail": "set.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "theme.migrations.0001_initial",
+        "description": "theme.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Theme',\n            fields=[\n                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=4000)),",
+        "detail": "theme.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "theme.migrations.0002_alter_theme_source",
+        "description": "theme.migrations.0002_alter_theme_source",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('theme', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='theme',\n            name='source',\n            field=models.CharField(choices=[('bricklink', 'bricklink'), ('brickeconomy', 'brickeconomy'), ('lego', 'lego'), ('bricksandminifigsanaheim', 'bricksandminifigsanaheim')], max_length=4000),\n        ),",
+        "detail": "theme.migrations.0002_alter_theme_source",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "theme.migrations.0003_alter_theme_source",
+        "description": "theme.migrations.0003_alter_theme_source",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('theme', '0002_alter_theme_source'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='theme',\n            name='source',\n            field=models.CharField(choices=[('bricklink', 'bricklink'), ('brickeconomy', 'brickeconomy'), ('LEGO', 'LEGO'), ('bricksandminifigsanaheim', 'bricksandminifigsanaheim')], max_length=4000),\n        ),",
+        "detail": "theme.migrations.0003_alter_theme_source",
+        "documentation": {}
+    },
+    {
+        "label": "ThemeConfig",
+        "kind": 6,
+        "importPath": "theme.apps",
+        "description": "theme.apps",
+        "peekOfCode": "class ThemeConfig(AppConfig):\n    name = 'theme'",
+        "detail": "theme.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Theme",
+        "kind": 6,
+        "importPath": "theme.models",
+        "description": "theme.models",
+        "peekOfCode": "class Theme(models.Model):\n    SOURCES = [\n        ('bricklink','bricklink'),\n        ('brickeconomy','brickeconomy'),\n        ('LEGO','LEGO'),\n        ('bricksandminifigsanaheim','bricksandminifigsanaheim'),\n    ]\n    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)\n    name = models.CharField(max_length=4000)\n    source = models.CharField(choices=SOURCES, max_length=4000)",
+        "detail": "theme.models",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]
