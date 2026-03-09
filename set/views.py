@@ -88,6 +88,10 @@ def ingest_set(request):
         # -------------------
         # IMAGES
         # -------------------
+        images = Images.objects.filter(set=set_obj)
+        for img in images:
+            img.link = img.link.replace('thumb', 'large').replace('.png', '.jpg')
+            img.save()
         for img in data.get("images", []):
             Images.objects.get_or_create(
                 set=set_obj,
