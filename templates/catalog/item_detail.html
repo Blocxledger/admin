@@ -1,6 +1,11 @@
 {% extends 'base.html' %} {% block title %}{{ code }} - {{ item.name }} -
 BrickVault{% endblock %} {% block content %} {% if item %}
 <div class="max-w-6xl mx-auto">
+  <script>
+    function changeImage(el) {
+      document.getElementById("main-image").src = el.src;
+    }
+  </script>
   <div class="flex flex-col md:flex-row gap-8">
     <div class="md:w-1/2">
       <div
@@ -8,6 +13,7 @@ BrickVault{% endblock %} {% block content %} {% if item %}
       >
         {% if item.image %}
         <img
+          id="main-image"
           src="{{ item.image }}"
           alt="{{ item.name }}"
           class="w-full h-full object-cover"
@@ -38,7 +44,8 @@ BrickVault{% endblock %} {% block content %} {% if item %}
         <img
           src="{{ img }}"
           alt=""
-          class="w-20 h-20 object-cover rounded-xl border border-slate-200 dark:border-slate-700 flex-shrink-0"
+          onclick="changeImage(this)"
+          class="w-20 h-20 object-cover rounded-xl border border-slate-200 dark:border-slate-700 flex-shrink-0 cursor-pointer"
         />
         {% endfor %}
       </div>
