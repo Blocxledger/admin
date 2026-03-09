@@ -224,8 +224,9 @@ def item_detail_view(request, code):
     item['themes'] = set_info.themes.all()
     images = Images.objects.filter(set=set_obj)
     for img in images:
-        img.link = img.link.replace('thumb', 'large').replace('.png', '.jpg')
-        img.save()
+        if set_info.brickeconomy_name:
+            img.link = img.link.replace('thumb', 'large').replace('.png', '.jpg')
+            img.save()
     item['images'] = [img for img in Images.objects.filter(set=set_obj).values_list('link', flat=True) if 'None' not in img ]
     # Fetch sellers
     unique_sellers = Sellers.objects.filter(set=set_obj, active=True).order_by('usd_price')
