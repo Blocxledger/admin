@@ -176,7 +176,7 @@ def get_daily_avg_prices(set_obj):
     # 2️⃣ Group prices by day
     daily_prices = defaultdict(list)
     for seller in sellers_qs:
-        day = seller.scraped_at.date().strftime("%d %b %Y")  # convert datetime to date
+        day = seller.scraped_at.date()  # convert datetime to date
         print(day)
         daily_prices[day].append(seller.usd_price)
 
@@ -185,7 +185,7 @@ def get_daily_avg_prices(set_obj):
     for day, prices in sorted(daily_prices.items()):
         avg_price = sum(prices) / len(prices)
         daily_avg_data.append({
-            "date": day,
+            "date": day.strftime("%d %b %Y"),
             "avg_price": round(avg_price, 2)
         })
 
@@ -198,7 +198,7 @@ def get_daily_avg_prices(set_obj):
     avg_by_day = {day: round(sum(prices)/len(prices), 2) for day, prices in daily_prices.items()}
     while current_date <= end_date:
         all_days_data.append({
-            "date": current_date,
+            "date": current_date.strftime("%d %b %Y"),
             "avg_price": avg_by_day.get(current_date, 0)
         })
         current_date += timedelta(days=1)

@@ -1857,6 +1857,15 @@
         "documentation": {}
     },
     {
+        "label": "conditions",
+        "kind": 5,
+        "importPath": "set.views",
+        "description": "set.views",
+        "peekOfCode": "conditions = {\n    'n':'New',\n    'u':'Used'\n}\n@csrf_exempt\ndef ingest_set(request):\n    if request.method != \"POST\":\n        return JsonResponse({\"error\": \"POST only\"}, status=405)\n    try:\n        data = json.loads(request.body)",
+        "detail": "set.views",
+        "documentation": {}
+    },
+    {
         "label": "Migration",
         "kind": 6,
         "importPath": "theme.migrations.0001_initial",

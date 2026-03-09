@@ -13,6 +13,10 @@ from .models import (
     Sellers,
 )
 
+conditions = {
+    'n':'New',
+    'u':'Used'
+}
 
 
 @csrf_exempt
@@ -127,6 +131,7 @@ def ingest_set(request):
             if seller.exists():
                 seller = seller.first()
             else:
+                condition = s.get("condition") if not conditions.get(s.get("condition").lower()) else conditions.get(s.get("condition").lower()) 
                 seller = Sellers.objects.create(
                 set=set_obj,
                 name=s.get("seller_name"),
