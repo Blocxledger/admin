@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -159,6 +161,46 @@ def browse_view(request):
     }
     return render(request, 'catalog/browse.html', context)
 
+def get_daily_avg_prices(set_obj):
+    """
+    Returns daily average USD prices for a given set_obj.
+    Output is a list of dicts with 'date' and 'avg_price',
+    ready to use in JS charts.
+    """
+
+    # 1️⃣ Aggregate daily averages
+    daily_avg_qs = (
+        Sellers.objects
+        .filter(set=set_obj, usd_price__isnull=False)
+        .annotate(day=TruncDate("scraped_at"))
+        .values("day")
+        .annotate(avg_price=Avg("usd_price"))
+        .order_by("day")
+    )
+
+    # 2️⃣ Convert to dictionary keyed by day for easy lookup
+    avg_by_day = {item["day"]: round(item["avg_price"], 2) if item["avg_price"] else 0
+                  for item in daily_avg_qs}
+
+    # 3️⃣ Determine date range (first -> last day)
+    if not avg_by_day:
+        return []
+
+    start_date = min(avg_by_day.keys())
+    end_date = max(avg_by_day.keys())
+
+    # 4️⃣ Fill missing days with 0
+    daily_avg_data = []
+    current_date = start_date
+    while current_date <= end_date:
+        daily_avg_data.append({
+            "date": current_date.strftime("%d %b %Y"),
+            "avg_price": avg_by_day.get(current_date, 0),
+        })
+        current_date += timedelta(days=1)
+
+    return daily_avg_data
+
 
 def item_detail_view(request, code):
     """Set detail page."""
@@ -193,20 +235,8 @@ def item_detail_view(request, code):
             in_watchlist = True
             is_favorite = w.is_favorite
 
-    # --- Calculate daily average prices for this set ---
-    daily_avg_qs = (
-        Sellers.objects.filter(set=set_obj, usd_price__isnull=False)
-        .annotate(date=TruncDate('scraped_at'))
-        .values('date')
-        .annotate(avg_price=Avg('usd_price'))
-        .order_by('date')
-    )
-
     # Convert date to string format for JS
-    daily_avg_data = [
-        {'date': item['date'].strftime('%d %b %Y'), 'avg_price': round(float(item['avg_price']), 2)}
-        for item in daily_avg_qs
-    ]
+    daily_avg_data = get_daily_avg_prices(set_obj)
     # Pass all to template
     context = {
         'item': item,
