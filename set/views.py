@@ -30,12 +30,13 @@ def ingest_set(request):
         return JsonResponse({"error": "Invalid JSON"}, status=400)
 
     with transaction.atomic():
-
+        set_id = str(data.get("set_id", ""))
+        set_id = set_id[:-2] if set_id.endswith("-1") else set_id 
         # -------------------
         # SET ID
         # -------------------
         set_obj, _ = SetId.objects.get_or_create(
-            set_id=data.get("set_id")
+            set_id=set_id
         )
 
         # -------------------
