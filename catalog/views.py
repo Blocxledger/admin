@@ -1,6 +1,6 @@
 from collections import defaultdict
 from datetime import timedelta
-
+from django.db import transaction
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -11,7 +11,6 @@ from set.models import SetId, SetInfo, Images, Sellers
 from theme.models import Theme
 from .models import Watchlist, Notification
 from .forms import ItemSearchForm, BrowseFilterForm
-from django.db.models.functions import TruncDate
 import requests
 
 def generate_description(brickeconomy_desc, bricksandminifigs_desc, lego_desc):
@@ -69,6 +68,37 @@ def _get_set_display(set_info):
 
 
 def home_view(request):
+    bad_items = SetId.objects.filter(set_id__endswith='-1')
+    total = bad_items.count()
+    print(f"Found {total} '-1' rows")
+
+    merged = 0
+    skipped = 0
+
+    for old in bad_items.select_related():
+        if '-' not in old.set_id:
+            skipped += 1
+            continue
+
+        base_key = old.set_id.rsplit('-', 1)[0]  # keeps everything before last '-'
+        try:
+            base = SetId.objects.get(set_id=base_key)
+        except SetId.DoesNotExist:
+            skipped += 1
+            print(f"Skip: no base SetId for {old.set_id} -> {base_key}")
+            continue
+
+        with transaction.atomic():
+            SetInfo.objects.filter(set=old).update(set=base)
+            Sellers.objects.filter(set=old).update(set=base)
+            Images.objects.filter(set=old).update(set=base)
+            old.delete()
+
+        merged += 1
+        print(f"Merged {old.set_id} -> {base_key}")
+
+    print(f"Done: merged {merged}, skipped {skipped}, total {total}")
+
     """Home page with trending and recent sets."""
     set_infos = SetInfo.objects.select_related('set').prefetch_related('themes')
     trending = set_infos.order_by('-view_count')[:8]
