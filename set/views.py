@@ -93,14 +93,6 @@ def ingest_set(request):
         # -------------------
         # IMAGES
         # -------------------
-        images = Images.objects.filter(set=set_obj)
-        for img in images:
-            if data["source"].lower() == "brickeconomy":
-                img.link = img.link.replace('thumb', 'large').replace('.png', '.jpg')
-                img.save()
-            if data["source"].lower() == "bricklink":
-                img.link = img.link.replace('thumb', 'large').replace('.jpg', '.png')
-                img.save()
 
         for img_link in data.get("images", []) + [data.get('image')]:
             if not img_link:
