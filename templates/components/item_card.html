@@ -14,10 +14,10 @@
         {% if item.themes %}
         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">{{ item.themes.0.name }}{% if item.themes|length > 1 %} ...{% endif %}</p>
         {% endif %}
-        {% if item.price %}
-        <p class="text-brick-500 dark:text-brick-400 font-bold mt-2">${{ item.price }}</p>
-        {% else %}
-        <p class="text-slate-500 dark:text-slate-400 text-sm mt-2">Price on request</p>
-        {% endif %}
+      {% if item.lego_price %}
+      <p class="text-3xl font-bold text-brick-500 dark:text-brick-400 mt-6">
+        ${{ item.lego_price }}
+      </p>
+      {% endif %}
     </div>
 </a>

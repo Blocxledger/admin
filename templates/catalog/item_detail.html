@@ -68,12 +68,10 @@ BrickVault{% endblock %} {% block content %} {% if item %}
           >{{ theme.name }}</a
         >{% if not forloop.last %},{% endif %} {% endfor %}
       </div>
-      {% endif %} {% if item.price %}
+      {% endif %} {% if item.lego_price %}
       <p class="text-3xl font-bold text-brick-500 dark:text-brick-400 mt-6">
-        ${{ item.price }}
+        ${{ item.lego_price }}
       </p>
-      {% else %}
-      <p class="text-slate-500 dark:text-slate-400 mt-6">Price on request</p>
       {% endif %} {% if user.is_authenticated %}
       <div class="flex flex-wrap gap-3 mt-6">
         {% if in_watchlist %}
