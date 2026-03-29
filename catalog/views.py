@@ -69,10 +69,6 @@ def _get_set_display(set_info):
 
 
 def home_view(request):
-    imgs = Images.objects.filter(link__contains='img.bricklink.com').filter(link__contains='.jpg')
-    for img in imgs:
-        img.link = img.link.replace('.jpg', '.png')
-        img.save()
     """Home page with trending and recent sets."""
     set_infos = SetInfo.objects.select_related('set').prefetch_related('themes')
     trending = set_infos.order_by('-view_count')[:8]
