@@ -4,8 +4,8 @@ from django.db import transaction
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q, Avg
-from django.core.paginator import Paginator
+from django.db.models.functions import Replace
+from django.db.models import Value
 import os
 from set.models import SetId, SetInfo, Images, Sellers
 from theme.models import Theme
@@ -68,6 +68,7 @@ def _get_set_display(set_info):
 
 
 def home_view(request):
+    Images.objects.filter(link__contains='bricklink.com', link__contains='.jpg').update(link=Replace('link', Value('.jpg'), Value('.png')))
     """Home page with trending and recent sets."""
     set_infos = SetInfo.objects.select_related('set').prefetch_related('themes')
     trending = set_infos.order_by('-view_count')[:8]
@@ -222,13 +223,6 @@ def item_detail_view(request, code):
     item['code'] = code
     item['themes'] = set_info.themes.all()
     images = Images.objects.filter(set=set_obj)
-    for img in images:
-        if set_info.brickeconomy_name:
-            img.link = img.link.replace('thumb', 'large').replace('.png', '.jpg')
-            img.save()
-        if set_info.bricklink_name:
-            img.link = img.link.replace('.jpg', '.png')
-            img.save()
     item['images'] = [img for img in Images.objects.filter(set=set_obj).values_list('link', flat=True) if 'None' not in img ]
     # Fetch sellers
     unique_sellers = Sellers.objects.filter(set=set_obj, active=True).order_by('usd_price')
