@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models.functions import Replace
-from django.db.models import Value
+from django.db.models import Q, Value
 import os
 from set.models import SetId, SetInfo, Images, Sellers
 from theme.models import Theme
@@ -68,7 +68,7 @@ def _get_set_display(set_info):
 
 
 def home_view(request):
-    Images.objects.filter(link__contains='bricklink.com', link__contains='.jpg').update(link=Replace('link', Value('.jpg'), Value('.png')))
+    Images.objects.filter(Q(link__contains='bricklink.com') & Q(link__contains='.jpg')).update(link=Replace('link', Value('.jpg'), Value('.png')))
     """Home page with trending and recent sets."""
     set_infos = SetInfo.objects.select_related('set').prefetch_related('themes')
     trending = set_infos.order_by('-view_count')[:8]
