@@ -31,7 +31,7 @@ def ingest_set(request):
 
     with transaction.atomic():
         set_id = str(data.get("set_id", ""))
-        set_id = set_id[:-2] if set_id.endswith("-1") else set_id 
+        set_id = set_id.replace("-1", "") if set_id.endswith("-1") else set_id
         # -------------------
         # SET ID
         # -------------------
@@ -136,7 +136,7 @@ def ingest_set(request):
                 set=set_obj,
                 name=s.get("seller_name"),
                 description=s.get("seller_description"),
-                condition=s.get("condition"),
+                condition=condition,
                 country=s.get("country"),
                 complete=s.get("complete"),
                 usd_price=s.get("usd_price"),
