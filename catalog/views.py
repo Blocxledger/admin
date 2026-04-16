@@ -1,6 +1,7 @@
 from collections import defaultdict
 from datetime import timedelta
 from django.db import transaction
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -243,6 +244,7 @@ def item_detail_view(request, code):
         'sellers': unique_sellers,
         'in_watchlist': in_watchlist,
         'is_favorite': is_favorite,
+        'avg_price': daily_avg_data[-1]['avg_price'] if daily_avg_data else None,  # latest avg price
         'daily_avg_data': daily_avg_data,  # <- this is for chart.js
     }
 
