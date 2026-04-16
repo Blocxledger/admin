@@ -67,6 +67,8 @@ def ingest_set(request):
         # -------------------
         # SET INFO
         # -------------------
+        if len(SetInfo.objects.filter(set=set_obj)) > 1:
+            SetInfo.objects.filter(set=set_obj).last().delete()
         set_info, _ = SetInfo.objects.update_or_create(
             set=set_obj,
             defaults={
