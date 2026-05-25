@@ -4,19 +4,41 @@ from django.contrib.auth.models import User
 from set.models import SetId
 
 
+class WatchlistGroup(models.Model):
+    """User-defined groups for organizing watchlist items."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='watchlist_groups')
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['user', 'name']
+        ordering = ['name']
+
+    def __str__(self):
+        return f"{self.user.username}'s {self.name} group"
+
+
 class Watchlist(models.Model):
     """User's watchlist - sets they're tracking for notifications."""
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='watchlist')
     set_obj = models.ForeignKey(SetId, on_delete=models.CASCADE, related_name='watchers')
+    group = models.ForeignKey(
+        WatchlistGroup,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='items'
+    )
     is_favorite = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ['user', 'set_obj']
+        unique_together = ['user', 'set_obj', 'group']
         ordering = ['-created_at']
 
     def __str__(self):
-        return f"{self.user.username} watching {self.set_obj.set_id}"
+        group_name = self.group.name if self.group else "General"
+        return f"{self.user.username} watching {self.set_obj.set_id} in {group_name}"
 
 
 class Notification(models.Model):

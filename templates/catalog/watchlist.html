@@ -5,50 +5,31 @@
 {% block content %}
 <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">My Watchlist</h1>
 
-{% if favorites or watching %}
+{% if grouped_watchlist %}
 <div class="space-y-12">
-    {% if favorites %}
-    <section>
-        <h2 class="text-xl font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
-            <span class="p-2 rounded-xl bg-brick-100 dark:bg-brick-500/20 text-brick-500 dark:text-brick-400">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            </span>
-            Favorites
-        </h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-            {% for item in favorites %}
-            <div class="relative group">
-                {% include 'components/item_card.html' with item=item %}
-                <div class="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="{% url 'catalog:watchlist_toggle_favorite' item.code %}" class="p-1.5 rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow" title="Remove from favorites">☆</a>
-                    <a href="{% url 'catalog:watchlist_remove' item.code %}" class="p-1.5 rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow text-red-500" title="Remove">✕</a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-    {% endif %}
-    {% if watching %}
+    {% for group_name, items in grouped_watchlist.items %}
     <section>
         <h2 class="text-xl font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
             <span class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
             </span>
-            Watching
+            {{ group_name }}
         </h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-            {% for item in watching %}
+            {% for item in items %}
             <div class="relative group">
                 {% include 'components/item_card.html' with item=item %}
                 <div class="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="{% url 'catalog:watchlist_toggle_favorite' item.code %}" class="p-1.5 rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow" title="Add to favorites">★</a>
+                    <a href="{% url 'catalog:watchlist_toggle_favorite' item.code %}" class="p-1.5 rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow" title="Toggle favorite">
+                        {% if item.watch.is_favorite %}★{% else %}☆{% endif %}
+                    </a>
                     <a href="{% url 'catalog:watchlist_remove' item.code %}" class="p-1.5 rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow text-red-500" title="Remove">✕</a>
                 </div>
             </div>
             {% endfor %}
         </div>
     </section>
-    {% endif %}
+    {% endfor %}
 </div>
 {% else %}
 {% url 'catalog:browse' as browse_url %}

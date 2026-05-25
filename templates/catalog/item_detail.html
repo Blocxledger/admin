@@ -92,11 +92,23 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
           {% if is_favorite %}★ Favorited{% else %}☆ Add to Favorites{% endif %}
         </a>
         {% else %}
-        <a
-          href="{% url 'catalog:watchlist_add' code %}"
-          class="px-4 py-2.5 rounded-xl bg-brick-500 hover:bg-brick-600 text-white font-medium shadow-sm hover:shadow transition-all"
-          >Add to Watchlist</a
-        >
+        <form action="{% url 'catalog:watchlist_add' code %}" method="POST" class="flex flex-col sm:flex-row gap-3">
+          {% csrf_token %}
+          <div class="flex-1 min-w-[200px]">
+            <select name="group_id" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-brick-500 transition-all">
+              <option value="">General Watchlist</option>
+              {% for group in watchlist_groups %}
+              <option value="{{ group.id }}">{{ group.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex-1 min-w-[200px]">
+            <input type="text" name="new_group_name" placeholder="Or create new group..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-brick-500 transition-all">
+          </div>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-brick-500 hover:bg-brick-600 text-white font-medium shadow-sm hover:shadow transition-all whitespace-nowrap">
+            Add to Watchlist
+          </button>
+        </form>
         {% endif %}
       </div>
       {% else %}
@@ -152,7 +164,7 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
                 borderColor: 'rgb(219, 39, 119)',
                 backgroundColor: 'rgba(219, 39, 119, 0.1)',
                 fill: true,
-                tension: 0.2,
+                tension: 0,
                 pointRadius: 3,
                 pointHoverRadius: 5,
             }]
@@ -160,19 +172,23 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
         options: {
             responsive: true,
             plugins: {
-                legend: { display: true, position: 'top' },
+                legend: { 
+                    display: true, 
+                    position: 'top',
+                    labels: { color: '#ffffff' }
+                },
                 tooltip: { mode: 'index', intersect: false },
             },
             scales: {
                 x: {
-                    title: { display: true, text: 'Date', color: '#334155' },
-                    ticks: { color: '#334155' },
-                    grid: { color: '#e2e8f0' }
+                    title: { display: true, text: 'Date', color: '#ffffff' },
+                    ticks: { color: '#ffffff' },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
                 },
                 y: {
-                    title: { display: true, text: 'Average Price (USD)', color: '#334155' },
-                    ticks: { color: '#334155' },
-                    grid: { color: '#e2e8f0' },
+                    title: { display: true, text: 'Average Price (USD)', color: '#ffffff' },
+                    ticks: { color: '#ffffff' },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
                     beginAtZero: false
                 }
             }

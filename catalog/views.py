@@ -9,7 +9,7 @@ from django.core.paginator import Paginator
 import os
 from set.models import SetId, SetInfo, Images, Sellers
 from theme.models import Theme
-from .models import Watchlist, Notification
+from .models import Watchlist, Notification, WatchlistGroup
 from .forms import ItemSearchForm, BrowseFilterForm
 import requests
 
@@ -195,10 +195,15 @@ def get_daily_avg_prices(set_obj):
     all_days_data = []
     current_date = start_date
     avg_by_day = {day: round(sum(prices)/len(prices), 2) for day, prices in daily_prices.items()}
+    last_price = 0
     while current_date <= end_date:
+        price = avg_by_day.get(current_date)
+        if price is not None:
+            last_price = price
+        
         all_days_data.append({
             "date": current_date.strftime("%d %b %Y"),
-            "avg_price": avg_by_day.get(current_date, 0)
+            "avg_price": price if price is not None else last_price
         })
         current_date += timedelta(days=1)
 
@@ -221,19 +226,21 @@ def item_detail_view(request, code):
     item['set_info'] = set_info
     item['code'] = code
     item['themes'] = set_info.themes.all()
-    images = Images.objects.filter(set=set_obj)
     item['images'] = [img for img in Images.objects.filter(set=set_obj).values_list('link', flat=True) if 'None' not in img ]
+    
     # Fetch sellers
     unique_sellers = Sellers.objects.filter(set=set_obj, active=True).order_by('usd_price')
 
     # Watchlist info
     in_watchlist = False
     is_favorite = False
+    watchlist_groups = []
     if request.user.is_authenticated:
         w = Watchlist.objects.filter(user=request.user, set_obj=set_obj).first()
         if w:
             in_watchlist = True
             is_favorite = w.is_favorite
+        watchlist_groups = WatchlistGroup.objects.filter(user=request.user)
 
     # Convert date to string format for JS
     daily_avg_data = get_daily_avg_prices(set_obj)
@@ -244,6 +251,7 @@ def item_detail_view(request, code):
         'sellers': unique_sellers,
         'in_watchlist': in_watchlist,
         'is_favorite': is_favorite,
+        'watchlist_groups': watchlist_groups,
         'avg_price': daily_avg_data[-1]['avg_price'] if daily_avg_data else None,  # latest avg price
         'daily_avg_data': daily_avg_data,  # <- this is for chart.js
     }
@@ -253,11 +261,9 @@ def item_detail_view(request, code):
 
 @login_required
 def watchlist_view(request):
-    """User's watchlist and favorites."""
-    watchlist = Watchlist.objects.filter(user=request.user).select_related('set_obj')
-    favorites = [w for w in watchlist if w.is_favorite]
-    watching = [w for w in watchlist if not w.is_favorite]
-
+    """User's watchlist grouped by custom groups."""
+    watchlist = Watchlist.objects.filter(user=request.user).select_related('set_obj', 'group')
+    
     def _wrap(w):
         si = SetInfo.objects.filter(set=w.set_obj).prefetch_related('themes').first()
         if not si:
@@ -268,9 +274,15 @@ def watchlist_view(request):
         d['watch'] = w
         return d
 
+    groups = defaultdict(list)
+    for w in watchlist:
+        wrapped = _wrap(w)
+        if wrapped:
+            group_name = w.group.name if w.group else "General"
+            groups[group_name].append(wrapped)
+
     context = {
-        'favorites': [x for x in (_wrap(w) for w in favorites) if x],
-        'watching': [x for x in (_wrap(w) for w in watching) if x],
+        'grouped_watchlist': dict(groups),
     }
     return render(request, 'catalog/watchlist.html', context)
 
@@ -279,7 +291,23 @@ def watchlist_view(request):
 def watchlist_add(request, code):
     set_obj = get_object_or_404(SetId, set_id=code)
     from django.urls import reverse
-    Watchlist.objects.get_or_create(user=request.user, set_obj=set_obj, defaults={'is_favorite': False})
+    
+    group_id = request.POST.get('group_id')
+    new_group_name = request.POST.get('new_group_name')
+    
+    group = None
+    if new_group_name:
+        group, _ = WatchlistGroup.objects.get_or_create(user=request.user, name=new_group_name)
+    elif group_id:
+        group = WatchlistGroup.objects.filter(id=group_id, user=request.user).first()
+
+    Watchlist.objects.get_or_create(
+        user=request.user, 
+        set_obj=set_obj, 
+        group=group, 
+        defaults={'is_favorite': False}
+    )
+    
     messages.success(request, f'Added {code} to your watchlist.')
     return redirect(request.META.get('HTTP_REFERER') or reverse('catalog:item_detail', kwargs={'code': code}))
 
