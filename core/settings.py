@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.up.railway.app",
-    "https://www.blocxledger.com/"
+    "https://www.blocxledger.com"
 ]
 
 MIDDLEWARE = [
