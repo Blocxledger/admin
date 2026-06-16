@@ -67,6 +67,20 @@ class Images(models.Model):
         return str(self.link)
 
 
+class PriceHistory(models.Model):
+    set = models.ForeignKey(SetId, on_delete=models.CASCADE, related_name='price_history')
+    date = models.DateField(db_index=True)
+    price = models.FloatField()
+    source = models.CharField(max_length=100, default='brickeconomy')
+
+    class Meta:
+        unique_together = ("set", "date", "source")
+        ordering = ['date']
+
+    def __str__(self):
+        return f"{self.set} - {self.date}: {self.price}"
+
+
 #class DailySetAverage(models.Model):
 #    set = models.ForeignKey(SetId, on_delete=models.CASCADE)
 #    date = models.DateField(db_index=True)

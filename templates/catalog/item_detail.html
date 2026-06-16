@@ -135,11 +135,20 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
     </div>
   </div>
 
-  {# --- Daily Average Price Chart --- #} {% if daily_avg_data %}
   <div class="mt-12">
-    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
-      Daily Average Price (USD)
-    </h2>
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
+        Daily Average Price (USD)
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        <button onclick="updateChart('1w', event)" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-brick-500 hover:text-brick-500 transition-all">1W</button>
+        <button onclick="updateChart('15d', event)" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-brick-500 hover:text-brick-500 transition-all">15D</button>
+        <button onclick="updateChart('3m', event)" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-brick-500 hover:text-brick-500 transition-all">3M</button>
+        <button onclick="updateChart('6m', event)" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-brick-500 hover:text-brick-500 transition-all">6M</button>
+        <button onclick="updateChart('1y', event)" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:border-brick-500 hover:text-brick-500 transition-all">1Y</button>
+        <button onclick="updateChart('all', event)" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg border border-brick-500 bg-brick-50 dark:bg-brick-500/10 text-brick-500 transition-all">All</button>
+      </div>
+    </div>
     <div
       class="rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg p-4 bg-white dark:bg-slate-800"
     >
@@ -149,46 +158,89 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
+    let priceChart;
     const dailyData = {{ daily_avg_data|safe }};
+
+    function updateChart(range, event) {
+        let filteredData = dailyData;
+        const now = Math.floor(Date.now() / 1000);
+        let cutoff = 0;
+
+        if (range === '1w') cutoff = now - (7 * 24 * 60 * 60);
+        else if (range === '15d') cutoff = now - (15 * 24 * 60 * 60);
+        else if (range === '3m') cutoff = now - (90 * 24 * 60 * 60);
+        else if (range === '6m') cutoff = now - (180 * 24 * 60 * 60);
+        else if (range === '1y') cutoff = now - (365 * 24 * 60 * 60);
+
+        if (cutoff > 0) {
+            filteredData = dailyData.filter(d => d.timestamp >= cutoff);
+        }
+
+        const labels = filteredData.map(item => item.date);
+        const prices = filteredData.map(item => item.avg_price);
+
+        priceChart.data.labels = labels;
+        priceChart.data.datasets[0].data = prices;
+        priceChart.update();
+
+        // Update active button styles
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.remove('border-brick-500', 'bg-brick-50', 'dark:bg-brick-500/10', 'text-brick-500');
+          btn.classList.add('border-slate-200', 'dark:border-slate-700', 'bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-400');
+        });
+        if (event) {
+          event.currentTarget.classList.add('border-brick-500', 'bg-brick-50', 'dark:bg-brick-500/10', 'text-brick-500');
+          event.currentTarget.classList.remove('border-slate-200', 'dark:border-slate-700', 'bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-400');
+        }
+    }
+
     const labels = dailyData.map(item => item.date);
     const prices = dailyData.map(item => item.avg_price);
 
     const ctx = document.getElementById('dailyPriceChart').getContext('2d');
-    new Chart(ctx, {
+    priceChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,
             datasets: [{
                 label: 'Average Price (USD)',
                 data: prices,
-                borderColor: 'rgb(219, 39, 119)',
-                backgroundColor: 'rgba(219, 39, 119, 0.1)',
+                borderColor: 'rgb(249, 115, 22)',
+                backgroundColor: 'rgba(249, 115, 22, 0.1)',
                 fill: true,
-                tension: 0,
+                tension: 0.3,
                 pointRadius: 3,
                 pointHoverRadius: 5,
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: { 
-                    display: true, 
-                    position: 'top',
-                    labels: { color: '#ffffff' }
+                    display: false
                 },
-                tooltip: { mode: 'index', intersect: false },
+                tooltip: { 
+                  backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                  titleColor: '#fff',
+                  bodyColor: '#fff',
+                  padding: 12,
+                  cornerRadius: 8,
+                  mode: 'index', 
+                  intersect: false 
+                },
             },
             scales: {
                 x: {
-                    title: { display: true, text: 'Date', color: '#ffffff' },
-                    ticks: { color: '#ffffff' },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    ticks: { color: 'rgb(100, 116, 139)', maxRotation: 0 },
+                    grid: { display: false }
                 },
                 y: {
-                    title: { display: true, text: 'Average Price (USD)', color: '#ffffff' },
-                    ticks: { color: '#ffffff' },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                    ticks: { 
+                      color: 'rgb(100, 116, 139)',
+                      callback: function(value) { return '$' + value; }
+                    },
+                    grid: { color: 'rgba(100, 116, 139, 0.1)' },
                     beginAtZero: false
                 }
             }

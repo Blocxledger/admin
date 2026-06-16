@@ -11,6 +11,7 @@ from .models import (
     Images,
     SetInfo,
     Sellers,
+    PriceHistory,
 )
 
 conditions = {
@@ -150,6 +151,23 @@ def ingest_set(request):
             seller.active = True
             seller.save()
 
+        # -------------------
+        # PRICE HISTORY
+        # -------------------
+        price_history = data.get("price_history", [])
+        source = data.get("source", "brickeconomy")
+        for history_list in price_history:
+            for entry in history_list:
+                date_str = entry.get("date")
+                price = entry.get("price")
+                if date_str and price is not None:
+                    PriceHistory.objects.update_or_create(
+                        set=set_obj,
+                        date=date_str,
+                        source=source,
+                        defaults={"price": price}
+                    )
+
     return JsonResponse({
         "status": "ok",
         "set_id": set_obj.set_id
@@ -180,3 +198,42 @@ def avg_prices_per_date(request, set_id):
     data = list(qs)
 
     return JsonResponse(data, safe=False)
+
+from django.core.paginator import Paginator
+
+def brickeconomy_links(request):
+    """
+    Returns a paginated list of BrickEconomy URLs and their corresponding set IDs.
+    """
+    page_number = request.GET.get('page', 1)
+    try:
+        page_size = int(request.GET.get('page_size', 100))
+    except ValueError:
+        page_size = 100
+
+    # Filter SetInfo objects that have a brickeconomy_url
+    set_infos = SetInfo.objects.filter(
+        brickeconomy_url__isnull=False
+    ).exclude(
+        brickeconomy_url=''
+    ).select_related('set').values('set__set_id', 'brickeconomy_url').order_by('set__set_id')
+
+    paginator = Paginator(set_infos, page_size)
+    page_obj = paginator.get_page(page_number)
+
+    results = [
+        {
+            "set_id": item['set__set_id'],
+            "link": item['brickeconomy_url']
+        }
+        for item in page_obj
+    ]
+
+    return JsonResponse({
+        "count": paginator.count,
+        "num_pages": paginator.num_pages,
+        "current_page": page_obj.number,
+        "has_next": page_obj.has_next(),
+        "has_previous": page_obj.has_previous(),
+        "results": results
+    })

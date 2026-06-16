@@ -1,5 +1,6 @@
 from collections import defaultdict
-from datetime import timedelta
+from datetime import timedelta, datetime
+import time
 from django.db import transaction
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
@@ -7,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
 import os
-from set.models import SetId, SetInfo, Images, Sellers
+from set.models import SetId, SetInfo, Images, Sellers, PriceHistory
 from theme.models import Theme
 from .models import Watchlist, Notification, WatchlistGroup
 from .forms import ItemSearchForm, BrowseFilterForm
@@ -163,32 +164,35 @@ def browse_view(request):
 
 def get_daily_avg_prices(set_obj):
     """
-    Calculate daily average USD prices for a given set_obj.
-    Returns a list of dicts: [{'date': '02 Mar 2026', 'avg_price': 219.62}, ...]
+    Get daily average USD prices for a given set_obj.
+    Prioritizes PriceHistory model (ingested data), falls back to Sellers (calculated).
+    Returns a list of dicts: [{'date': '02 Mar 2026', 'avg_price': 219.62, 'timestamp': ...}, ...]
     """
-    # 1️⃣ Fetch sellers with USD prices, ordered by scraped_at
+    # 1. Try PriceHistory first (ingested data)
+    history_qs = PriceHistory.objects.filter(set=set_obj).order_by('date')
+    if history_qs.exists():
+        return [
+            {
+                "date": entry.date.strftime("%d %b %Y"),
+                "avg_price": entry.price,
+                "timestamp": int(time.mktime(entry.date.timetuple()))
+            }
+            for entry in history_qs
+        ]
+
+    # 2. Fallback to Sellers (calculated from current/past listings)
     sellers_qs = Sellers.objects.filter(set=set_obj, usd_price__isnull=False).order_by('scraped_at')
     
     if not sellers_qs.exists():
         return []
 
-    # 2️⃣ Group prices by day
+    # Group prices by day
     daily_prices = defaultdict(list)
     for seller in sellers_qs:
-        day = seller.scraped_at.date()  # convert datetime to date
-        print(day)
+        day = seller.scraped_at.date()
         daily_prices[day].append(seller.usd_price)
 
-    # 3️⃣ Calculate daily averages
-    daily_avg_data = []
-    for day, prices in sorted(daily_prices.items()):
-        avg_price = sum(prices) / len(prices)
-        daily_avg_data.append({
-            "date": day.strftime("%d %b %Y"),
-            "avg_price": round(avg_price, 2)
-        })
-
-    # 4️⃣ Optional: Fill missing days (continuous chart)
+    # Calculate daily averages and fill gaps
     start_date = min(daily_prices.keys())
     end_date = max(daily_prices.keys())
 
@@ -203,7 +207,8 @@ def get_daily_avg_prices(set_obj):
         
         all_days_data.append({
             "date": current_date.strftime("%d %b %Y"),
-            "avg_price": price if price is not None else last_price
+            "avg_price": price if price is not None else last_price,
+            "timestamp": int(time.mktime(current_date.timetuple()))
         })
         current_date += timedelta(days=1)
 
