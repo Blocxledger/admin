@@ -15,12 +15,20 @@
             <div>
                 <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Min Price ($)</label>
                 <input type="number" name="min_price" value="{{ form.min_price.value|default:'' }}" step="0.01" min="0" placeholder="0"
-                       class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 text-slate-900 dark:text-slate-100">
+                       class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 text-slate-900 dark:text-slate-100 w-full">
             </div>
             <div>
                 <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Max Price ($)</label>
                 <input type="number" name="max_price" value="{{ form.max_price.value|default:'' }}" step="0.01" min="0" placeholder="Any"
-                       class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 text-slate-900 dark:text-slate-100">
+                       class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brick-500 text-slate-900 dark:text-slate-100 w-full">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Price Source</label>
+                {{ form.price_type }}
+            </div>
+            <div id="date-filter-group" class="{% if form.price_type.value != 'history' %}hidden{% endif %}">
+                <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Target Date</label>
+                {{ form.date }}
             </div>
             <div>
                 <label class="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">Sort by</label>
@@ -31,6 +39,25 @@
             </button>
         </form>
     </aside>
+
+    {% block extra_js %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceTypeSelect = document.querySelector('select[name="price_type"]');
+            const dateFilterGroup = document.getElementById('date-filter-group');
+
+            function toggleDateFilter() {
+                if (priceTypeSelect.value === 'history') {
+                    dateFilterGroup.classList.remove('hidden');
+                } else {
+                    dateFilterGroup.classList.add('hidden');
+                }
+            }
+
+            priceTypeSelect.addEventListener('change', toggleDateFilter);
+        });
+    </script>
+    {% endblock %}
     <div class="flex-1 min-w-0">
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {% for item in items %}

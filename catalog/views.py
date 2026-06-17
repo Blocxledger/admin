@@ -2,7 +2,7 @@ from collections import defaultdict
 from datetime import timedelta, datetime
 import time
 from django.db import transaction
-from django.db.models import Q
+from django.db.models import Q, Avg, OuterRef, Subquery, F
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -137,12 +137,52 @@ def browse_view(request):
             theme_ids = [form.cleaned_data['category'].id]
             theme_ids.extend(Theme.objects.filter(parent=form.cleaned_data['category']).values_list('id', flat=True))
             set_infos = set_infos.filter(themes__id__in=theme_ids).distinct()
-        if form.cleaned_data.get('min_price') is not None:
-            set_infos = set_infos.filter(lego_price__gte=form.cleaned_data['min_price'])
-        if form.cleaned_data.get('max_price') is not None:
-            set_infos = set_infos.filter(lego_price__lte=form.cleaned_data['max_price'])
+        
+        min_p = form.cleaned_data.get('min_price')
+        max_p = form.cleaned_data.get('max_price')
+        p_type = form.cleaned_data.get('price_type') or 'lego'
+        p_date = form.cleaned_data.get('date')
+
+        if p_type == 'lego':
+            if min_p is not None:
+                set_infos = set_infos.filter(lego_price__gte=min_p)
+            if max_p is not None:
+                set_infos = set_infos.filter(lego_price__lte=max_p)
+        elif p_type == 'market':
+            avg_market = Sellers.objects.filter(
+                set=OuterRef('set'), 
+                active=True, 
+                usd_price__isnull=False
+            ).values('set').annotate(avg_p=Avg('usd_price')).values('avg_p')
+            
+            set_infos = set_infos.annotate(target_price=Subquery(avg_market))
+            if min_p is not None:
+                set_infos = set_infos.filter(target_price__gte=min_p)
+            if max_p is not None:
+                set_infos = set_infos.filter(target_price__lte=max_p)
+        elif p_type == 'history':
+            history_qs = PriceHistory.objects.filter(set=OuterRef('set'))
+            if p_date:
+                history_qs = history_qs.filter(date=p_date)
+            else:
+                history_qs = history_qs.order_by('-date')
+            
+            set_infos = set_infos.annotate(target_price=Subquery(history_qs.values('price')[:1]))
+            if min_p is not None:
+                set_infos = set_infos.filter(target_price__gte=min_p)
+            if max_p is not None:
+                set_infos = set_infos.filter(target_price__lte=max_p)
+
         sort = form.cleaned_data.get('sort_by') or '-view_count'
-        set_infos = set_infos.order_by(sort)
+        
+        if sort == 'price_asc':
+            sort_field = 'lego_price' if p_type == 'lego' else 'target_price'
+            set_infos = set_infos.order_by(F(sort_field).asc(nulls_last=True))
+        elif sort == 'price_desc':
+            sort_field = 'lego_price' if p_type == 'lego' else 'target_price'
+            set_infos = set_infos.order_by(F(sort_field).desc(nulls_last=True))
+        else:
+            set_infos = set_infos.order_by(sort)
 
     paginator = Paginator(set_infos, 24)
     page_obj = paginator.get_page(request.GET.get('page', 1))
