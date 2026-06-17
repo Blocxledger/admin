@@ -211,28 +211,26 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
                 fill: true,
                 tension: 0.4,
                 pointRadius: 0,
-                pointHitRadius: 10,
-                pointHoverRadius: 4,
-                pointHoverBackgroundColor: 'rgb(249, 115, 22)',
-                pointHoverBorderColor: '#fff',
-                pointHoverBorderWidth: 2,
+                pointHoverRadius: 5,
+                pointHitRadius: 20,
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            elements: {
+                point: {
+                    radius: 0 // Global point hide
+                }
+            },
             interaction: {
                 mode: 'index',
                 intersect: false,
             },
             plugins: {
-                legend: { 
-                    display: false
-                },
+                legend: { display: false },
                 tooltip: { 
                   backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                  titleColor: '#fff',
-                  bodyColor: '#fff',
                   padding: 12,
                   cornerRadius: 8,
                   displayColors: false,
@@ -249,7 +247,17 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
                         color: 'rgb(100, 116, 139)', 
                         maxRotation: 0,
                         autoSkip: true,
-                        maxTicksLimit: 6
+                        maxTicksLimit: 5, // Strictly limit dates
+                        callback: function(val, index) {
+                            // Only show every Nth label to keep it clean
+                            const total = this.chart.data.labels.length;
+                            const limit = 5;
+                            const interval = Math.ceil(total / limit);
+                            if (index % interval === 0 || index === total - 1) {
+                                return this.getLabelForValue(val);
+                            }
+                            return '';
+                        }
                     },
                     grid: { display: false }
                 },
