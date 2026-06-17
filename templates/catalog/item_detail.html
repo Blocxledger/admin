@@ -209,14 +209,22 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
                 borderColor: 'rgb(249, 115, 22)',
                 backgroundColor: 'rgba(249, 115, 22, 0.1)',
                 fill: true,
-                tension: 0.3,
-                pointRadius: 3,
-                pointHoverRadius: 5,
+                tension: 0.4,
+                pointRadius: 0,
+                pointHitRadius: 10,
+                pointHoverRadius: 4,
+                pointHoverBackgroundColor: 'rgb(249, 115, 22)',
+                pointHoverBorderColor: '#fff',
+                pointHoverBorderWidth: 2,
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
             plugins: {
                 legend: { 
                     display: false
@@ -227,19 +235,29 @@ Blocxledger{% endblock %} {% block content %} {% if item %}
                   bodyColor: '#fff',
                   padding: 12,
                   cornerRadius: 8,
-                  mode: 'index', 
-                  intersect: false 
+                  displayColors: false,
+                  callbacks: {
+                      label: function(context) {
+                          return 'Price: $' + context.parsed.y;
+                      }
+                  }
                 },
             },
             scales: {
                 x: {
-                    ticks: { color: 'rgb(100, 116, 139)', maxRotation: 0 },
+                    ticks: { 
+                        color: 'rgb(100, 116, 139)', 
+                        maxRotation: 0,
+                        autoSkip: true,
+                        maxTicksLimit: 6
+                    },
                     grid: { display: false }
                 },
                 y: {
                     ticks: { 
                       color: 'rgb(100, 116, 139)',
-                      callback: function(value) { return '$' + value; }
+                      callback: function(value) { return '$' + value; },
+                      maxTicksLimit: 5
                     },
                     grid: { color: 'rgba(100, 116, 139, 0.1)' },
                     beginAtZero: false
