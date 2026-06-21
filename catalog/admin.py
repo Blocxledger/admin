@@ -1,5 +1,25 @@
 from django.contrib import admin
-from .models import Watchlist, Notification
+from .models import Watchlist, Notification, HomeSection, HomeSectionItem
+
+
+class HomeSectionItemInline(admin.TabularInline):
+    model = HomeSectionItem
+    extra = 1
+    raw_id_fields = ['set_obj']
+    ordering = ['order']
+
+
+@admin.register(HomeSection)
+class HomeSectionAdmin(admin.ModelAdmin):
+    list_display = ['name', 'order', 'is_active', 'item_count']
+    list_editable = ['order', 'is_active']
+    list_filter = ['is_active']
+    search_fields = ['name']
+    inlines = [HomeSectionItemInline]
+
+    def item_count(self, obj):
+        return obj.items.count()
+    item_count.short_description = 'Items'
 
 
 @admin.register(Watchlist)

@@ -4,7 +4,6 @@
 {% block content %}
 <div class="text-center mb-12 animate-fade-in">
     <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-3">Discover LEGO Sets</h1>
-    <p class="text-slate-600 dark:text-slate-400 text-lg">Track prices, save favorites, and never miss an update</p>
 </div>
 
 <div class="flex justify-center mb-16">
@@ -19,37 +18,21 @@
     </form>
 </div>
 
-{% if trending_items %}
+{% for section in home_sections %}
 <section class="mb-16">
     <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
         <span class="p-2 rounded-xl bg-brick-100 dark:bg-brick-500/20 text-brick-500 dark:text-brick-400">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
         </span>
-        Trending
+        {{ section.name }}
     </h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-        {% for item in trending_items %}
+        {% for item in section.items %}
         {% include 'components/item_card.html' with item=item %}
         {% endfor %}
     </div>
 </section>
-{% endif %}
-
-{% if recent_items %}
-<section class="mb-16">
-    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-        <span class="p-2 rounded-xl bg-brick-100 dark:bg-brick-500/20 text-brick-500 dark:text-brick-400">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </span>
-        Newest Sets
-    </h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-        {% for item in recent_items %}
-        {% include 'components/item_card.html' with item=item %}
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
+{% endfor %}
 
 {% if categories %}
 <section>
@@ -70,7 +53,7 @@
 </section>
 {% endif %}
 
-{% if not trending_items and not recent_items and not categories %}
+{% if not home_sections and not categories %}
 {% url 'admin:index' as admin_url %}
 {% include 'components/empty_state.html' with title="No items in the catalog yet" message="Add items via the admin panel or the ingest API to get started." action_url=admin_url action_text="Go to Admin" %}
 {% endif %}

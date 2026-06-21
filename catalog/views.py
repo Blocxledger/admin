@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 import os
 from set.models import SetId, SetInfo, Images, Sellers, PriceHistory
 from theme.models import Theme
-from .models import Watchlist, Notification, WatchlistGroup
+from .models import Watchlist, Notification, WatchlistGroup, HomeSection
 from .forms import ItemSearchForm, BrowseFilterForm
 import requests
 
@@ -69,22 +69,27 @@ def _get_set_display(set_info):
 
 
 def home_view(request):
-    """Home page with trending and recent sets."""
-    set_infos = SetInfo.objects.select_related('set').prefetch_related('themes')
-    trending = set_infos.order_by('-view_count')[:8]
-    recent = set_infos.order_by('-id')[:8]
+    """Home page with configurable sections."""
+    sections = HomeSection.objects.filter(is_active=True).prefetch_related('items__set_obj')
+    
+    home_sections = []
+    for section in sections:
+        items = []
+        for item in section.items.select_related('set_obj').all():
+            set_info = SetInfo.objects.filter(set=item.set_obj).select_related('set').prefetch_related('themes').first()
+            if set_info:
+                d = _get_set_display(set_info)
+                d['set_info'] = set_info
+                d['code'] = set_info.set.set_id
+                d['themes'] = set_info.themes.all()
+                items.append(d)
+        if items:
+            home_sections.append({'name': section.name, 'items': items})
+
     themes = Theme.objects.filter(parent__isnull=True)[:8]
 
-    def _item(set_info):
-        d = _get_set_display(set_info)
-        d['set_info'] = set_info
-        d['code'] = set_info.set.set_id
-        d['themes'] = set_info.themes.all()
-        return d
-
     context = {
-        'trending_items': [_item(s) for s in trending],
-        'recent_items': [_item(s) for s in recent],
+        'home_sections': home_sections,
         'categories': themes,
     }
     return render(request, 'catalog/home.html', context)

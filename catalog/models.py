@@ -4,6 +4,34 @@ from django.contrib.auth.models import User
 from set.models import SetId
 
 
+class HomeSection(models.Model):
+    """A configurable section on the homepage (e.g., 'Trending', 'Newest Sets')."""
+    name = models.CharField(max_length=100)
+    order = models.IntegerField(default=0, help_text="Lower numbers appear first.")
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['order', 'name']
+
+    def __str__(self):
+        return self.name
+
+
+class HomeSectionItem(models.Model):
+    """A product item within a home section."""
+    section = models.ForeignKey(HomeSection, on_delete=models.CASCADE, related_name='items')
+    set_obj = models.ForeignKey(SetId, on_delete=models.CASCADE)
+    order = models.IntegerField(default=0, help_text="Order within the section.")
+
+    class Meta:
+        ordering = ['order', 'id']
+        unique_together = ['section', 'set_obj']
+
+    def __str__(self):
+        return f"{self.section.name} - {self.set_obj.set_id}"
+
+
 class WatchlistGroup(models.Model):
     """User-defined groups for organizing watchlist items."""
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='watchlist_groups')
