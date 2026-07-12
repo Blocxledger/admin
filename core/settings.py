@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'blog',
     'catalog',
     'set',
     'theme',
@@ -135,3 +136,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = 'catalog:home'
 LOGOUT_REDIRECT_URL = 'catalog:home'
+SITE_URL = os.environ.get('SITE_URL', 'https://www.blocxledger.com')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@blocxledger.com')

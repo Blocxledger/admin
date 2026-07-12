@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#bg)"/>
+  <g transform="translate(4, 10)">
+    <rect x="0" y="8" width="40" height="24" rx="4" fill="white" opacity="0.25"/>
+    <circle cx="11" cy="8" r="5" fill="white" opacity="0.35"/>
+    <circle cx="24" cy="8" r="5" fill="white" opacity="0.35"/>
+    <circle cx="37" cy="8" r="5" fill="white" opacity="0.35"/>
+  </g>
+  <text x="24" y="36" font-family="'DM Sans', system-ui, sans-serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">
+    B
+  </text>
+</svg>
